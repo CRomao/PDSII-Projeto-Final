@@ -1,11 +1,8 @@
 package br.com.pickshow.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-import br.com.pickshow.model.ConnectionFactory;
+import br.com.pickshow.model.LoginModel;
 import br.com.pickshow.view.EscolherCadastro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -17,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class LoginController {
+public class LoginController implements VerificarCampos{
 
 	@FXML
 	public TextField txtEmail;
@@ -40,11 +37,19 @@ public class LoginController {
 
 	@FXML
 	public void actionBtnEntrar() {
+		String msg = verificarCampos();
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText(null);
 		alert.setTitle("Informação");
-		alert.setContentText(verificarCampos());
+		alert.setContentText(msg);
 		alert.showAndWait();
+		
+		if(msg.equals("Login realizado com sucesso!")) {
+			Stage stage = (Stage) btnEntrar.getScene().getWindow();
+			stage.close();
+			//Colocar para abrir a tela HOME
+		}
 	}
 
 	@FXML
@@ -56,6 +61,7 @@ public class LoginController {
 		}
 	}
 
+	@Override
 	public String verificarCampos() {
 		if (txtEmail.getText().equals("")) {
 			return "Preencha o seu Email.";
@@ -64,40 +70,9 @@ public class LoginController {
 		} else if (comboBoxEscolha.getSelectionModel().getSelectedIndex() == -1) {
 			return "Escolha que tipo de usuário você é.";
 		} else {
-			return conectar();
+			return LoginModel.conectar(comboBoxEscolha.getSelectionModel().getSelectedIndex(),
+					txtEmail.getText(), txtSenha.getText());
 		}
-	}
-
-	public String conectar() {
-		try {
-			Connection conn = new ConnectionFactory().getConnection();
-			PreparedStatement ps;
-			
-			int tipo = comboBoxEscolha.getSelectionModel().getSelectedIndex();
-			String sql = "";
-			
-			if (tipo == 0) {
-				sql = "SELECT * FROM AD_profissional where email = '" + txtEmail.getText() + "' AND senha = '"
-						+ txtSenha.getText() + "';";
-			} else if (tipo == 1) {
-				sql = "SELECT * FROM AD_cliente where email = '" + txtEmail.getText() + "' AND senha = '"
-						+ txtSenha.getText() + "';";
-			}
-
-			ps = conn.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-			
-			if (rs.next()) {
-				return "Login realizado com sucesso!";
-			} else {
-				return "Email ou senha inválidos.";
-			}
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "Conexão com o banco não estabelecida.";
 	}
 
 }

@@ -41,11 +41,13 @@ public class EscolherCadastroController {
 	@FXML
 	public void actionBtnCadastrarProfiss() throws IOException {
 		cadastroFactory.criarCadastro(CadastroFactory.PROFISSIONAL);
+		actionBtnVoltar();
 	}
 
 	@FXML
 	public void actionBtnCadastrarCliente() throws IOException {
 		cadastroFactory.criarCadastro(CadastroFactory.CLIENTE);
+		actionBtnVoltar();
 	}
 
 }
