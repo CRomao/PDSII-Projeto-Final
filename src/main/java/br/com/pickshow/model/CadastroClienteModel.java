@@ -4,19 +4,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class CadastroProfissionalModel {
+public class CadastroClienteModel {
 	
-	public static String conectar(String nome, String sobrenome, String email, String senha, String cpfCnpj, int areaAtuacao) {
+	public static String conectar(String nome, String sobrenome, String email, String senha, String cpf) {
 		try {
 			Connection conn =  ConnectionSingleton.getConexao();
 			PreparedStatement ps;
 
-			String sql = "INSERT INTO AD_profissional (nome, sobrenome, senha, email, areaAtuacao, cpfCnpj) "
-					+ "values('"+nome+"', '"+ sobrenome+ "', '"+senha+"', '"+email+"', "+areaAtuacao+", '"+cpfCnpj+"');";
+			String sql = "INSERT INTO AD_cliente (nome, sobrenome, senha, email, cpf) "
+					+ "values('"+nome+"', '"+ sobrenome+ "', '"+senha+"', '"+email+"', '"+cpf+"');";
 
 			ps = conn.prepareStatement(sql);
 			ps.execute();
-			//conn.close();
 			return "Cadastro realizado com sucesso!";
 			
 

@@ -2,14 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.CadastroProfissionalController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.CadastroClienteController">
    <children>
-      <Button layoutX="354.0" layoutY="367.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="159.0" text="Cadastrar">
+      <Button fx:id="btnCadastrarCliente" layoutX="354.0" layoutY="367.0" mnemonicParsing="false" onAction="#actionBtnCadastrarCliente" prefHeight="51.0" prefWidth="159.0" text="Cadastrar">
          <font>
             <Font size="25.0" />
          </font>
@@ -20,7 +21,7 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail" layoutX="22.0" layoutY="106.0" prefHeight="37.0" prefWidth="219.0" promptText="Digite seu nome">
+      <TextField fx:id="txtNome" layoutX="22.0" layoutY="106.0" prefHeight="37.0" prefWidth="219.0" promptText="Digite seu nome">
          <font>
             <Font size="15.0" />
          </font>
@@ -30,7 +31,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail1" layoutX="294.0" layoutY="106.0" prefHeight="37.0" prefWidth="219.0" promptText="Digite seu sobrenome">
+      <TextField fx:id="txtSobreNome" layoutX="294.0" layoutY="106.0" prefHeight="37.0" prefWidth="219.0" promptText="Digite seu sobrenome">
          <font>
             <Font size="15.0" />
          </font>
@@ -40,7 +41,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail2" layoutX="22.0" layoutY="189.0" prefHeight="37.0" prefWidth="487.0" promptText="Digite seu email">
+      <TextField fx:id="txtEmail" layoutX="22.0" layoutY="189.0" prefHeight="37.0" prefWidth="487.0" promptText="Digite seu email">
          <font>
             <Font size="15.0" />
          </font>
@@ -50,17 +51,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail3" layoutX="22.0" layoutY="271.0" prefHeight="37.0" prefWidth="219.0" promptText="Digite sua senha">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <Label layoutX="22.0" layoutY="240.0" prefHeight="42.0" prefWidth="72.0" text="Senha:">
+      <Label layoutX="22.0" layoutY="237.0" prefHeight="42.0" prefWidth="72.0" text="Senha:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail4" layoutX="290.0" layoutY="268.0" prefHeight="37.0" prefWidth="219.0" promptText="Informe seu CPF">
+      <TextField fx:id="txtCpf" layoutX="290.0" layoutY="268.0" prefHeight="37.0" prefWidth="219.0" promptText="Informe seu CPF">
          <font>
             <Font size="15.0" />
          </font>
@@ -75,5 +71,6 @@
             <Font size="25.0" />
          </font>
       </Button>
+      <PasswordField fx:id="txtSenha" layoutX="21.0" layoutY="268.0" prefHeight="37.0" prefWidth="210.0" />
    </children>
 </Pane>

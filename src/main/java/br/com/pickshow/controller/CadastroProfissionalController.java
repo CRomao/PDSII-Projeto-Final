@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class CadastroProfissionalController implements VerificarCampos{
+public class CadastroProfissionalController implements VerificarCampos {
 
 	@FXML
 	public TextField txtNome;
@@ -44,8 +44,8 @@ public class CadastroProfissionalController implements VerificarCampos{
 		alert.setTitle("Informação");
 		alert.setContentText(msg);
 		alert.showAndWait();
-		
-		if(msg.equals("Cadastro realizado com sucesso!")) {
+
+		if (msg.equals("Cadastro realizado com sucesso!")) {
 			Stage stage = (Stage) btnCadastrarProfissional.getScene().getWindow();
 			stage.close();
 		}
@@ -58,29 +58,24 @@ public class CadastroProfissionalController implements VerificarCampos{
 		comboBoxEscolhaArea.getItems().addAll(areas);
 
 	}
-	
-	
+
 	@Override
 	public String verificarCampos() {
 		if (txtNome.getText().equals("")) {
 			return "Preencha o seu nome.";
 		} else if (txtSobreNome.getText().equals("")) {
 			return "Preencha seu sobrenome.";
-		}else if (txtEmail.getText().equals("")) {
+		} else if (txtEmail.getText().equals("")) {
 			return "Preencha seu email.";
-		}else if (txtSenha.getText().equals("")) {
+		} else if (txtSenha.getText().equals("")) {
 			return "Preencha sua senha.";
-		}else if (txtCpfCnpj.getText().equals("")) {
+		} else if (txtCpfCnpj.getText().equals("")) {
 			return "Preencha seu CPF ou CNPJ.";
 		} else if (comboBoxEscolhaArea.getSelectionModel().getSelectedIndex() == -1) {
 			return "Escolha a área de sua atuação.";
 		} else {
-			return CadastroProfissionalModel.conectar(
-					txtNome.getText(),
-					txtSobreNome.getText(),
-					txtEmail.getText(),
-					txtSenha.getText(),
-					txtCpfCnpj.getText(),
+			return CadastroProfissionalModel.conectar(txtNome.getText(), txtSobreNome.getText(), txtEmail.getText(),
+					txtSenha.getText(), txtCpfCnpj.getText(),
 					comboBoxEscolhaArea.getSelectionModel().getSelectedIndex());
 		}
 	}
