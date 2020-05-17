@@ -1,4 +1,4 @@
-package br.com.pickshow.model;
+package br.com.pickshow.padroes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

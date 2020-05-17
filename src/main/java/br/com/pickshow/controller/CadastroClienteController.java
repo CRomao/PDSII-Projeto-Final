@@ -1,7 +1,6 @@
 package br.com.pickshow.controller;
 
 import br.com.pickshow.model.CadastroClienteModel;
-import br.com.pickshow.model.CadastroProfissionalModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;

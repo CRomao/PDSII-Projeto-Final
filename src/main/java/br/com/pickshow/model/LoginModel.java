@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import br.com.pickshow.padroes.ConnectionSingleton;
+
 public class LoginModel {
 	
 	public static String conectar(int tipoUsuario, String email, String senha) {

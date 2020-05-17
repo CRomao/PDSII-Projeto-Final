@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import br.com.pickshow.padroes.ConnectionSingleton;
+
 public class CadastroProfissionalModel {
 	
 	public static String conectar(String nome, String sobrenome, String email, String senha, String cpfCnpj, int areaAtuacao) {
