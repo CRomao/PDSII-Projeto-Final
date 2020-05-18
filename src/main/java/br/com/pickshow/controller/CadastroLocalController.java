@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class CadastroProfissionalController implements VerificarCampos {
+public class CadastroLocalController implements VerificarCampos {
 
 	@FXML
 	public TextField txtNome;

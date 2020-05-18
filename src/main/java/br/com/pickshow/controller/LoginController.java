@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.com.pickshow.model.LoginModel;
 import br.com.pickshow.view.EscolherCadastro;
+import br.com.pickshow.view.Home;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -49,6 +50,12 @@ public class LoginController implements VerificarCampos{
 			Stage stage = (Stage) btnEntrar.getScene().getWindow();
 			stage.close();
 			//Colocar para abrir a tela HOME
+			try {
+				new Home().start(new Stage());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

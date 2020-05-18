@@ -5,19 +5,18 @@ import java.sql.PreparedStatement;
 
 import br.com.pickshow.padroes.ConnectionSingleton;
 
-public class CadastroProfissionalModel {
+public class CadastroMeuLocalModel {
 	
-	public static String conectar(String nome, String sobrenome, String email, String senha, String cpfCnpj, int areaAtuacao) {
+	public static String conectar(String nomeLocal, String ruaLocal, String telefoneContato, String areaInformacoes, int areaLocal) {
 		try {
 			Connection conn =  ConnectionSingleton.getConexao();
 			PreparedStatement ps;
 
-			String sql = "INSERT INTO AD_profissional (nome, sobrenome, senha, email, areaAtuacao, cpfCnpj) "
-					+ "values('"+nome+"', '"+ sobrenome+ "', '"+senha+"', '"+email+"', "+areaAtuacao+", '"+cpfCnpj+"');";
+			String sql = "INSERT INTO AD_local (nome, sobrenome, senha, email, cpf) "
+					+ "values('"+nome+"', '"+ sobrenome+ "', '"+senha+"', '"+email+"', '"+cpf+"');";
 
 			ps = conn.prepareStatement(sql);
 			ps.execute();
-			//conn.close();
 			return "Cadastro realizado com sucesso!";
 			
 

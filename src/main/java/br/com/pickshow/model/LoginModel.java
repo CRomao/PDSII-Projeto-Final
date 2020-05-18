@@ -8,6 +8,8 @@ import br.com.pickshow.padroes.ConnectionSingleton;
 
 public class LoginModel {
 	
+	static String nomeUser;
+	
 	public static String conectar(int tipoUsuario, String email, String senha) {
 		try {
 			Connection conn =  ConnectionSingleton.getConexao();
@@ -28,6 +30,7 @@ public class LoginModel {
 
 			if (rs.next()) {
 				//conn.close();
+				nomeUser = rs.getString(2);
 				return "Login realizado com sucesso!";
 			} else {
 				//conn.close();
@@ -39,5 +42,9 @@ public class LoginModel {
 			e.printStackTrace();
 		}
 		return "Conexão com o banco não estabelecida.";
+	}
+	
+	public static String pegarNomeUsuario() {
+		return nomeUser;
 	}
 }

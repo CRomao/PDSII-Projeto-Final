@@ -3,8 +3,6 @@ package br.com.pickshow.controller;
 import java.io.IOException;
 
 import br.com.pickshow.padroes.CadastroFactory;
-import br.com.pickshow.view.CadastroCliente;
-import br.com.pickshow.view.CadastroProfissional;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
