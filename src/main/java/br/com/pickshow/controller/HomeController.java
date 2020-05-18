@@ -1,10 +1,14 @@
 package br.com.pickshow.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import br.com.pickshow.model.LoginModel;
 import br.com.pickshow.view.Local;
 import br.com.pickshow.view.MeusLocais;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -14,11 +18,10 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class HomeController {
-s
+public class HomeController implements Initializable {
+
 	@FXML
 	public Menu menuNomeUser;
-	//menuNomeUser.setText(LoginModel.pegarNomeUsuario());
 	@FXML
 	public MenuItem menuLocal;
 	@FXML
@@ -30,7 +33,7 @@ s
 	@FXML
 	public Button sair;
 	boolean fechar;
-
+	
 	@FXML
 	public void actionMenuItemSair() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -74,5 +77,9 @@ s
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		menuNomeUser.setText(LoginController.pegarNomeUsuario());
 	}
 }

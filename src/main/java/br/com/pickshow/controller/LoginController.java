@@ -15,8 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class LoginController implements VerificarCampos{
-
+public class LoginController implements VerificarCampos {
+	
 	@FXML
 	public TextField txtEmail;
 	@FXML
@@ -28,6 +28,14 @@ public class LoginController implements VerificarCampos{
 	@FXML
 	public ComboBox comboBoxEscolha;
 
+	public static String pegarNomeUsuario() {
+		return LoginModel.pegarNomeUsuario();
+	}
+	
+	public static int pegarIdusuario() {
+		return LoginModel.pegarIdusuario();
+	}
+	
 	@FXML
 	public void actionComboBoxEscolha() {
 		String[] tipo = { "Profissional", "Cliente" };
@@ -39,21 +47,19 @@ public class LoginController implements VerificarCampos{
 	@FXML
 	public void actionBtnEntrar() {
 		String msg = verificarCampos();
-		
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText(null);
 		alert.setTitle("Informação");
 		alert.setContentText(msg);
 		alert.showAndWait();
-		
-		if(msg.equals("Login realizado com sucesso!")) {
+
+		if (msg.equals("Login realizado com sucesso!")) {
 			Stage stage = (Stage) btnEntrar.getScene().getWindow();
 			stage.close();
-			//Colocar para abrir a tela HOME
 			try {
 				new Home().start(new Stage());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -77,8 +83,8 @@ public class LoginController implements VerificarCampos{
 		} else if (comboBoxEscolha.getSelectionModel().getSelectedIndex() == -1) {
 			return "Escolha que tipo de usuário você é.";
 		} else {
-			return LoginModel.conectar(comboBoxEscolha.getSelectionModel().getSelectedIndex(),
-					txtEmail.getText(), txtSenha.getText());
+			return LoginModel.conectar(comboBoxEscolha.getSelectionModel().getSelectedIndex(), txtEmail.getText(),
+					txtSenha.getText());
 		}
 	}
 

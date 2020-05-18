@@ -21,7 +21,7 @@
          </font>
       </Label>
       <TextField fx:id="txtNomeLocal" layoutX="28.0" layoutY="66.0" prefHeight="25.0" prefWidth="239.0" />
-      <Label layoutX="29.0" layoutY="112.0" text="Rua do local:">
+      <Label layoutX="29.0" layoutY="112.0" text="Endereço do local:">
          <font>
             <Font size="15.0" />
          </font>

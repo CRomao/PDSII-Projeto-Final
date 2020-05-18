@@ -11,13 +11,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.MeusLocaisController">
    <children>
-      <TableView layoutX="-2.0" layoutY="165.0" prefHeight="255.0" prefWidth="630.0">
+      <TableView fx:id="tabela" layoutX="-2.0" layoutY="165.0" prefHeight="255.0" prefWidth="630.0">
         <columns>
-          <TableColumn prefWidth="63.0" text="Código" />
-          <TableColumn prefWidth="154.0" text="Nome do Local" />
-            <TableColumn prefWidth="147.0" text="Rua do Local" />
-            <TableColumn prefWidth="110.0" text="Telefone Contato" />
-            <TableColumn prefWidth="155.0" text="Tipo de Local" />
+          <TableColumn fx:id="codCol" prefWidth="63.0" text="Código" />
+          <TableColumn fx:id="nomeLocalCol" prefWidth="154.0" text="Nome do Local" />
+            <TableColumn fx:id="ruaLocalCol" prefWidth="147.0" text="Rua do Local" />
+            <TableColumn fx:id="telefoneLocalCol" prefWidth="110.0" text="Telefone Contato" />
+            <TableColumn fx:id="tipoLocalCol" prefWidth="155.0" text="Tipo de Local" />
         </columns>
       </TableView>
       <Button fx:id="btnCadastrar" layoutX="23.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionBtnCadastrar" prefHeight="45.0" prefWidth="108.0" text="Cadastrar" />

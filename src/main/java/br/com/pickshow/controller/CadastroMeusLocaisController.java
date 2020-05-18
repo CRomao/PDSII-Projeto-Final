@@ -1,6 +1,6 @@
 package br.com.pickshow.controller;
 
-import br.com.pickshow.model.CadastroMeuLocalModel;
+import br.com.pickshow.model.CadastroMeusLocaisModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -70,9 +70,9 @@ public class CadastroMeusLocaisController implements VerificarCampos {
 		} else if (comboBoxEscolhaArea.getSelectionModel().getSelectedIndex() == -1) {
 			return "Escolha o tipo do local.";
 		} else {
-			return CadastroMeuLocalModel.conectar(txtNomeLocal.getText(), txtRuaLocal.getText(), txtTelefoneContato.getText(),
+			return CadastroMeusLocaisModel.conectar(txtNomeLocal.getText(), txtRuaLocal.getText(), txtTelefoneContato.getText(),
 					txtAreaInformacoes.getText(),
-					comboBoxEscolhaArea.getSelectionModel().getSelectedIndex());
+					comboBoxEscolhaArea.getSelectionModel().getSelectedIndex(), LoginController.pegarIdusuario());
 		}
 	}
 

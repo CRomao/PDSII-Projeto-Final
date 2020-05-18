@@ -8,7 +8,8 @@ import br.com.pickshow.padroes.ConnectionSingleton;
 
 public class LoginModel {
 	
-	static String nomeUser;
+	private static String nomeUser;
+	private static int idUser;
 	
 	public static String conectar(int tipoUsuario, String email, String senha) {
 		try {
@@ -30,6 +31,7 @@ public class LoginModel {
 
 			if (rs.next()) {
 				//conn.close();
+				idUser = rs.getInt(1);
 				nomeUser = rs.getString(2);
 				return "Login realizado com sucesso!";
 			} else {
@@ -46,5 +48,9 @@ public class LoginModel {
 	
 	public static String pegarNomeUsuario() {
 		return nomeUser;
+	}
+	
+	public static int pegarIdusuario() {
+		return idUser;
 	}
 }
