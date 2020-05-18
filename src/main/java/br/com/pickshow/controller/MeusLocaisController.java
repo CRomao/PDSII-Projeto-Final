@@ -85,7 +85,7 @@ public class MeusLocaisController implements Initializable {
 
 	private ObservableList<Local> listaDeLocais() {
 
-		return FXCollections.observableArrayList(MeusLocaisModel.conectar(LoginModel.pegarIdusuario()));
+		return FXCollections.observableArrayList(new MeusLocaisModel().conectar(LoginModel.pegarIdusuario()));
 	}
 
 	public static class Local {

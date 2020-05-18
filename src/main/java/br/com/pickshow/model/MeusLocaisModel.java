@@ -11,9 +11,9 @@ import br.com.pickshow.view.Local;
 
 public class MeusLocaisModel {
 	
-	static ArrayList<MeusLocaisController.Local> locais = new ArrayList<>();
+	ArrayList<MeusLocaisController.Local> locais = new ArrayList<>();
 	
-	public static ArrayList<MeusLocaisController.Local> conectar(int id_profissional) {
+	public ArrayList<MeusLocaisController.Local> conectar(int id_profissional) {
 		try {
 			Connection conn =  ConnectionSingleton.getConexao();
 			PreparedStatement ps;
