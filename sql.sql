@@ -103,15 +103,32 @@ CREATE TRIGGER AD_TG_TIPOLOCAL BEFORE INSERT ON AD_TIPOLOCAL FOR
 EACH ROW EXECUTE PROCEDURE AD_SP_TIPOLOCAL_ID();
 
 
+--VIEWS
+
+CREATE OR REPLACE VIEW VW_LOCAL_LOCAIS
+(NOME_PROPRIETARIO, NOME_LOCAL,RUA_LOCAL,TELEFONE_LOCAL,TIPO_LOCAL) AS
+SELECT pro.nome, l.nomeLocal, l.ruaLocal, l.telefone, tl.tipo
+FROM AD_local l
+JOIN ad_tipoLocal tl ON l.id_tipoLocal = tl.id
+JOIN ad_profissional pro ON pro.id = l.id_profissional
 
 -------------------------------------------------------------------------------------------
 select * from ad_cliente
 select * from ad_profissional
 select * from ad_local
+select * from ad_tipolocal
+select * from VW_LOCAL_LOCAIS
+
+insert into AD_tipolocal (tipo) values('Aniversário');
+insert into AD_tipolocal (tipo) values('Casamento');
+insert into AD_tipolocal (tipo) values('Confraternização');
+insert into AD_tipolocal (tipo) values('Festa');
+insert into AD_tipolocal (tipo) values('Lazer');
 
 insert into AD_profissional values(1, 'a', 'a', 'a', 'a', 1, '1')
 alter table ad_profissional alter id drop default;
 alter table ad_cliente alter id drop default;
+alter table ad_TIPOLOCAL alter id drop default;
 delete from ad_profissional
 drop table AD_tipoLocal
 

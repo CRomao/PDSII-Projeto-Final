@@ -7,13 +7,14 @@ import java.util.ArrayList;
 
 import br.com.pickshow.controller.MeusLocaisController;
 import br.com.pickshow.padroes.ConnectionSingleton;
-import br.com.pickshow.view.Local;
+import br.com.pickshow.view.Locais;
 
 public class MeusLocaisModel {
 	
-	ArrayList<MeusLocaisController.Local> locais = new ArrayList<>();
+	static ArrayList<MeusLocaisController.Local> locais = new ArrayList<>();
 	
-	public ArrayList<MeusLocaisController.Local> conectar(int id_profissional) {
+	public static ArrayList<MeusLocaisController.Local> conectar(int id_profissional) {
+		locais.clear();
 		try {
 			Connection conn =  ConnectionSingleton.getConexao();
 			PreparedStatement ps;

@@ -2,39 +2,31 @@ package br.com.pickshow.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import br.com.pickshow.controller.LocaisController.Local;
-import br.com.pickshow.model.LoginModel;
-import br.com.pickshow.model.MeusLocaisModel;
-import br.com.pickshow.view.CadastroMeusLocais;
+import br.com.pickshow.model.LocaisModel;
 import br.com.pickshow.view.LocaisSelecionado;
-import javafx.beans.property.SimpleIntegerProperty;
+import br.com.pickshow.view.MeusLocais;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class MeusLocaisController implements Initializable {
+//Classe para o controle dos Cadastros.
+public class LocaisController implements Initializable {
 
-	public static int verifyButton = 0;
+	
 	public static Local localSelecionado;
 	public static int doubleClicked = 0;
-	
-	public Button btnCadastrar;
 	@FXML
-	public Button btnDeletar;
+	public Button btnVisualizar;
 	@FXML
 	public Button btnVoltar;
 	@FXML
@@ -42,7 +34,7 @@ public class MeusLocaisController implements Initializable {
 	@FXML
 	public TableView<Local> tabela;
 	@FXML
-	public TableColumn<Local, Integer> codCol;
+	public TableColumn<Local, String> nomeProprietario;
 	@FXML
 	public TableColumn<Local, String> nomeLocalCol;
 	@FXML
@@ -60,47 +52,16 @@ public class MeusLocaisController implements Initializable {
 
 	@FXML
 	public void actionBtnCadastrar() {
-		verifyButton = 1;
-		try {
-			new CadastroMeusLocais().start(new Stage());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@FXML
-	public void onMouseClickedTabela() {
-		doubleClicked++;
-		if(doubleClicked == 2) {
-			localSelecionado = tabela.getSelectionModel().getSelectedItem();
-			chamarTela();
-			doubleClicked = 0;
-		}
-	}
-	
-	public void actionBtnDeletar() {
-		if(doubleClicked == 1) {
-			try {
-				new CadastroMeusLocais().start(new Stage());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			doubleClicked = 1;
-		}
-		
-	}
-	
-	public void chamarTela() {
-		try {
-			new CadastroMeusLocais().start(new Stage());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			new CadastroMeusLocais().start(new Stage());
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	@FXML
 	public void actioncomboBoxPesquisa() {
-		String[] areas = { "Código", "Nome local", "Rua local" };
+		String[] areas = { "ID", "Nome local", "Rua local" };
 		comboBoxPesquisa.getItems().removeAll(areas);
 		comboBoxPesquisa.getItems().addAll(areas);
 
@@ -108,7 +69,7 @@ public class MeusLocaisController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		codCol.setCellValueFactory(new PropertyValueFactory<>("cod"));
+		nomeProprietario.setCellValueFactory(new PropertyValueFactory<>("nomeProprietario"));
 		nomeLocalCol.setCellValueFactory(new PropertyValueFactory<>("nomeLocal"));
 		ruaLocalCol.setCellValueFactory(new PropertyValueFactory<>("ruaLocal"));
 		telefoneLocalCol.setCellValueFactory(new PropertyValueFactory<>("telefoneLocal"));
@@ -122,34 +83,51 @@ public class MeusLocaisController implements Initializable {
 
 	private ObservableList<Local> listaDeLocais() {
 
-		return FXCollections.observableArrayList(MeusLocaisModel.conectar(LoginModel.pegarIdusuario()));
+		return FXCollections.observableArrayList(LocaisModel.conectar());
 	}
 
+	@FXML
+	public void onMouseClickedTabela() {
+		doubleClicked++;
+		if(doubleClicked == 2) {
+			localSelecionado = tabela.getSelectionModel().getSelectedItem();
+			try {
+				new LocaisSelecionado().start(new Stage());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			doubleClicked = 0;
+		}
+	}
+	
+	
+
 	public static class Local {
-		private final SimpleIntegerProperty cod;
+		private final SimpleStringProperty nomeProprietario;
 		private final SimpleStringProperty nomeLocal;
 		private final SimpleStringProperty ruaLocal;
 		private final SimpleStringProperty telefoneLocal;
 		private final SimpleStringProperty tipoLocal;
 
-		public Local(Integer cod, String nomeLocal, String ruaLocal, String telefoneLocal, String tipoLocal) {
-			this.cod = new SimpleIntegerProperty(cod);
+		public Local(String nomeProprietario, String nomeLocal, String ruaLocal, String telefoneLocal,
+				String tipoLocal) {
+			this.nomeProprietario = new SimpleStringProperty(nomeProprietario);
 			this.nomeLocal = new SimpleStringProperty(nomeLocal);
 			this.ruaLocal = new SimpleStringProperty(ruaLocal);
 			this.telefoneLocal = new SimpleStringProperty(telefoneLocal);
 			this.tipoLocal = new SimpleStringProperty(tipoLocal);
 		}
 
-		public Integer getCod() {
-			return cod.get();
+		public String getNomeProprietario() {
+			return nomeProprietario.get();
 		}
 
-		public SimpleIntegerProperty codProperty() {
-			return cod;
+		public SimpleStringProperty codProperty() {
+			return nomeProprietario;
 		}
 
-		public void setCod(Integer cod) {
-			this.cod.set(cod);
+		public void setNomeProprietario(String nomeProprietario) {
+			this.nomeProprietario.set(nomeProprietario);
 		}
 
 		public String getNomeLocal() {

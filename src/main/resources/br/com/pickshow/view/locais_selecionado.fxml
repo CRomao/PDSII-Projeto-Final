@@ -8,13 +8,21 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.LocaisSelecionadoController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ddf2" height="153.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
-      <Label layoutX="121.0" layoutY="34.0" text="Label" />
-      <Label layoutX="121.0" layoutY="91.0" text="Label" />
-      <Label layoutX="121.0" layoutY="127.0" text="Label" />
+      <Label fx:id="lblNomeLocal" layoutX="18.0" layoutY="22.0" text="Label">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label fx:id="lblTelefoneContato" layoutX="14.0" layoutY="100.0" text="Label">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="lblRuaLocal" layoutX="14.0" layoutY="130.0" text="Label">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="153.0" layoutX="270.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
       <Label layoutX="350.0" layoutY="74.0" text="Foto do Local">
          <font>

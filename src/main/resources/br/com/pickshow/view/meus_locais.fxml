@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.MeusLocaisController">
    <children>
-      <TableView fx:id="tabela" layoutX="-2.0" layoutY="165.0" prefHeight="255.0" prefWidth="630.0">
+      <TableView fx:id="tabela" layoutX="-2.0" layoutY="165.0" onMouseClicked="#onMouseClickedTabela" prefHeight="255.0" prefWidth="630.0">
         <columns>
           <TableColumn fx:id="codCol" prefWidth="63.0" text="Código" />
           <TableColumn fx:id="nomeLocalCol" prefWidth="154.0" text="Nome do Local" />
@@ -25,9 +25,7 @@
       <Label layoutX="362.0" layoutY="88.0" text="Buscar por:" />
       <ComboBox fx:id="comboBoxPesquisa" layoutX="362.0" layoutY="114.0" onMouseClicked="#actioncomboBoxPesquisa" prefHeight="33.0" prefWidth="150.0" promptText="Selecione..." />
       <Button fx:id="btnVoltar" layoutX="544.0" layoutY="109.0" mnemonicParsing="false" onAction="#actionBtnVoltar" prefHeight="45.0" prefWidth="72.0" text="Voltar" />
-      <Button layoutX="150.0" layoutY="16.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="108.0" text="Visualizar" />
-      <Button layoutX="278.0" layoutY="16.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="108.0" text="Alterar" />
-      <Button layoutX="408.0" layoutY="16.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="108.0" text="Deletar" />
+      <Button fx:id="btnDeletar" layoutX="157.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionBtnDeletar" prefHeight="45.0" prefWidth="108.0" text="Deletar" />
       <Line endX="527.0" layoutX="103.0" layoutY="78.0" startX="-100.0" />
    </children>
 </AnchorPane>

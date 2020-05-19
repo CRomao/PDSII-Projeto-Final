@@ -1,7 +1,11 @@
 package br.com.pickshow.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import br.com.pickshow.model.CadastroMeusLocaisModel;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -11,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class CadastroMeusLocaisController implements VerificarCampos {
+public class CadastroMeusLocaisController implements VerificarCampos, Initializable {
 
 	@FXML
 	public TextField txtNomeLocal;
@@ -70,10 +74,35 @@ public class CadastroMeusLocaisController implements VerificarCampos {
 		} else if (comboBoxEscolhaArea.getSelectionModel().getSelectedIndex() == -1) {
 			return "Escolha o tipo do local.";
 		} else {
-			return CadastroMeusLocaisModel.conectar(txtNomeLocal.getText(), txtRuaLocal.getText(), txtTelefoneContato.getText(),
-					txtAreaInformacoes.getText(),
-					comboBoxEscolhaArea.getSelectionModel().getSelectedIndex(), LoginController.pegarIdusuario());
+			if (MeusLocaisController.verifyButton == 1) {
+				MeusLocaisController.verifyButton = 0;
+				return CadastroMeusLocaisModel.insert(txtNomeLocal.getText(), txtRuaLocal.getText(),
+						txtTelefoneContato.getText(), txtAreaInformacoes.getText(),
+						comboBoxEscolhaArea.getSelectionModel().getSelectedIndex(), LoginController.pegarIdusuario());
+
+			} else {
+				return CadastroMeusLocaisModel.update(txtNomeLocal.getText(), txtRuaLocal.getText(),
+						txtTelefoneContato.getText(), txtAreaInformacoes.getText(),
+						comboBoxEscolhaArea.getSelectionModel().getSelectedIndex(), LoginController.pegarIdusuario());
+			}
+
 		}
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		if (MeusLocaisController.verifyButton != 1) {
+			txtNomeLocal.setText(MeusLocaisController.localSelecionado.getNomeLocal());
+			txtRuaLocal.setText(MeusLocaisController.localSelecionado.getRuaLocal());
+			txtTelefoneContato.setText(MeusLocaisController.localSelecionado.getTelefoneLocal());
+			//txtAreaInformacoes.setText(MeusLocaisController.localSelecionado.getCod());
+			comboBoxEscolhaArea.getSelectionModel().select(CadastroMeusLocaisModel.selectIdTipoLocal(
+					MeusLocaisController.localSelecionado.getTipoLocal()));
+			btnCadastrarLocal.setText("Salvar");
+			
+			comboBoxEscolhaArea.getSelectionModel().select
+		}
+
 	}
 
 }

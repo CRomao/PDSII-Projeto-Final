@@ -8,13 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Local extends Application {
+public class LocaisSelecionado extends Application {
 
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("local"));
+		scene = new Scene(loadFXML("locais_selecionado"));
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();

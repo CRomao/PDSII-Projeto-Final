@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import br.com.pickshow.model.LoginModel;
-import br.com.pickshow.view.Local;
+import br.com.pickshow.view.Locais;
 import br.com.pickshow.view.MeusLocais;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -72,7 +72,7 @@ public class HomeController implements Initializable {
 	@FXML
 	public void actionMenuLocal() {
 		try {
-			new Local().start(new Stage());
+			new Locais().start(new Stage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
