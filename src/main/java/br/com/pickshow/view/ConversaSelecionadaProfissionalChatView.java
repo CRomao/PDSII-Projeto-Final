@@ -8,14 +8,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CadastroCliente extends Application {
+public class ConversaSelecionadaProfissionalChatView extends Application {
 
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("cadastro_cliente"));
+		scene = new Scene(loadFXML("conversa_selecionada_profissional_chat"));
 		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.setTitle("Local");
 		stage.show();
 	}
 

@@ -1,4 +1,4 @@
-package br.com.pickshow.controller;
+package br.com.pickshow.padroes;
 
 public interface VerificarCampos {
 

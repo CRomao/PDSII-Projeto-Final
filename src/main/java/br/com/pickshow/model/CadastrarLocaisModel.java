@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 import br.com.pickshow.padroes.ConnectionSingleton;
 
-public class CadastroMeusLocaisModel {
+public class CadastrarLocaisModel {
 
 	public static String insert(String nomeLocal, String ruaLocal, String telefoneContato, String areaInformacoes,
 			int tipoAreaLocal, int idProfissional) {
@@ -29,14 +29,14 @@ public class CadastroMeusLocaisModel {
 	}
 
 	public static String update(String nomeLocal, String ruaLocal, String telefoneContato, String areaInformacoes,
-			int tipoAreaLocal, int idProfissional) {
+			int tipoAreaLocal, int idLoal) {
 		try {
 			Connection conn = ConnectionSingleton.getConexao();
 			PreparedStatement ps;
 
 			String sql = "UPDATE AD_local SET nomeLocal = '" + nomeLocal + "', ruaLocal = '" + ruaLocal
 					+ "', telefone = '" + telefoneContato + "', " + "informacoesLocal = '" + areaInformacoes
-					+ "', id_tipoLocal = '" + tipoAreaLocal + "' WHERE id_profissional = " + idProfissional + ";";
+					+ "', id_tipoLocal = '" + tipoAreaLocal + "' WHERE id = " + idLoal + ";";
 
 			ps = conn.prepareStatement(sql);
 			ps.execute();
@@ -48,15 +48,35 @@ public class CadastroMeusLocaisModel {
 		return "Conexão com o banco de dados perdida.";
 	}
 
+	public static String selectInformacoesLocal(int idLocal) {
+		try {
+			Connection conn = ConnectionSingleton.getConexao();
+			PreparedStatement ps;
+
+			String sql = "SELECT informacoesLocal FROM AD_Local WHERE id = " + idLocal + ";";
+
+			ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				return rs.getString(1);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
 	public static int selectIdTipoLocal(String tipoLocal) {
 		try {
 			Connection conn = ConnectionSingleton.getConexao();
 			PreparedStatement ps;
 
-			String sql = "SELECT id FROM AD_tipoLocal WHERE tipo ='" + tipoLocal + "';";
+			String sql = "SELECT id FROM AD_tipoLocal WHERE tipo = '" + tipoLocal + "';";
 
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
+			
 			while (rs.next()) {
 				return rs.getInt(1);
 			}

@@ -8,18 +8,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * JavaFX App
- */
-public class App extends Application {
+public class LocaisProfissionalView extends Application {
 
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("login"));
+		scene = new Scene(loadFXML("locais_profissional"));
 		stage.setScene(scene);
-		stage.setTitle("PickShow - Login");
+		stage.setResizable(false);
+		stage.setTitle("Meus Locais");
 		stage.show();
 	}
 
@@ -31,9 +29,4 @@ public class App extends Application {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
 		return fxmlLoader.load();
 	}
-
-	public static void main(String[] args) {
-		launch();
-	}
-
 }

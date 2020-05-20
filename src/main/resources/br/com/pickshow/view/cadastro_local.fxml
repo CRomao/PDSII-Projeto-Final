@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.CadastroMeusLocaisController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.CadastrarLocaisController">
    <children>
       <Button fx:id="btnCadastrarLocal" layoutX="509.0" layoutY="355.0" mnemonicParsing="false" onAction="#actionBtnCadastrarLocal" prefHeight="45.0" prefWidth="98.0" text="Cadastrar">
          <font>

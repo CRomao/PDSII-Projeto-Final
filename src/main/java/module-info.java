@@ -4,6 +4,7 @@ module br.edu.fapce.view {
 	requires java.sql;
 	requires postgresql;
 	requires java.management;
+	requires javafx.graphics;
 
     opens br.com.pickshow.view to javafx.fxml;
     exports br.com.pickshow.view;

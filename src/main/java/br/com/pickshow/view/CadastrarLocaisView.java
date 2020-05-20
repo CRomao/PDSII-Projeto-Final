@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CadastroMeusLocais extends Application {
+public class CadastrarLocaisView extends Application {
 
 	private static Scene scene;
 
@@ -17,6 +17,7 @@ public class CadastroMeusLocais extends Application {
 		scene = new Scene(loadFXML("cadastro_local"));
 		stage.setScene(scene);
 		stage.setResizable(false);
+		stage.setTitle("Cadastrar Local");
 		stage.show();
 	}
 

@@ -6,11 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import br.com.pickshow.controller.LocaisController.Local;
+import br.com.pickshow.controller.VisualizarLocaisController.Local;
 import br.com.pickshow.model.LoginModel;
-import br.com.pickshow.model.MeusLocaisModel;
-import br.com.pickshow.view.CadastroMeusLocais;
-import br.com.pickshow.view.LocaisSelecionado;
+import br.com.pickshow.model.LocaisProfissionalModel;
+import br.com.pickshow.view.CadastrarLocaisView;
+import br.com.pickshow.view.LocalSelecionadoClienteView;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,15 +27,19 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class MeusLocaisController implements Initializable {
+public class LocaisProfissionalController implements Initializable {
 
 	public static int verifyButton = 0;
 	public static Local localSelecionado;
+	public Local primeiroClick, segundoClick;
 	public static int doubleClicked = 0;
-	
+	boolean deletar;
+
 	public Button btnCadastrar;
 	@FXML
 	public Button btnDeletar;
+	@FXML
+	public Button btnAtualizar;
 	@FXML
 	public Button btnVoltar;
 	@FXML
@@ -62,37 +67,77 @@ public class MeusLocaisController implements Initializable {
 	public void actionBtnCadastrar() {
 		verifyButton = 1;
 		try {
-			new CadastroMeusLocais().start(new Stage());
+			new CadastrarLocaisView().start(new Stage());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public void actionBtnAtualizar() {
+		locaisCarregados();
+	}
+
 	@FXML
 	public void onMouseClickedTabela() {
 		doubleClicked++;
-		if(doubleClicked == 2) {
-			localSelecionado = tabela.getSelectionModel().getSelectedItem();
-			chamarTela();
-			doubleClicked = 0;
+		if (doubleClicked == 1) {
+			primeiroClick = tabela.getSelectionModel().getSelectedItem();
 		}
-	}
-	
-	public void actionBtnDeletar() {
-		if(doubleClicked == 1) {
-			try {
-				new CadastroMeusLocais().start(new Stage());
-			} catch (IOException e) {
-				e.printStackTrace();
+
+		if (doubleClicked == 2) {
+			segundoClick = tabela.getSelectionModel().getSelectedItem();
+		}
+
+		if (doubleClicked == 2) {
+			if (primeiroClick == segundoClick) {
+				localSelecionado = tabela.getSelectionModel().getSelectedItem();
+				chamarTela();
+				doubleClicked = 0;
+			} else {
+				doubleClicked = 0;
 			}
-			doubleClicked = 1;
+
 		}
-		
 	}
-	
+
+	@FXML
+	public void actionBtnDeletar() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setHeaderText(null);
+		alert.setTitle("Informação");
+
+		if (doubleClicked < 1) {
+			alert.setContentText("Escolha um registro para deletar.");
+			alert.showAndWait();
+
+		} else if (doubleClicked == 1) {
+			Alert alert2 = new Alert(AlertType.INFORMATION);
+			alert2.setHeaderText(null);
+			alert2.setTitle("Informação");
+			alert2.setContentText("Deseja realmente excluir este registro?");
+			ButtonType sim = new ButtonType("Sim");
+			ButtonType nao = new ButtonType("Não");
+			alert2.getButtonTypes().setAll(sim, nao);
+			alert2.showAndWait().ifPresent(b -> {
+				if (b.getText() == "Sim") {
+					deletar = true;
+				}
+			});
+			if (deletar) {
+				localSelecionado = tabela.getSelectionModel().getSelectedItem();
+				alert.setContentText(LocaisProfissionalModel.deletarRegistroLocal(localSelecionado.getCod()));
+				doubleClicked = 0;
+				locaisCarregados();
+				alert.showAndWait();
+			}
+			doubleClicked = 0;
+
+		}
+	}
+
 	public void chamarTela() {
 		try {
-			new CadastroMeusLocais().start(new Stage());
+			new CadastrarLocaisView().start(new Stage());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -114,15 +159,19 @@ public class MeusLocaisController implements Initializable {
 		telefoneLocalCol.setCellValueFactory(new PropertyValueFactory<>("telefoneLocal"));
 		tipoLocalCol.setCellValueFactory(new PropertyValueFactory<>("tipoLocal"));
 
-		ObservableList<Local> locais = listaDeLocais();
-		tabela.getItems().removeAll(locais);
-		tabela.setItems(locais);
+		locaisCarregados();
 
 	}
 
 	private ObservableList<Local> listaDeLocais() {
 
-		return FXCollections.observableArrayList(MeusLocaisModel.conectar(LoginModel.pegarIdusuario()));
+		return FXCollections.observableArrayList(LocaisProfissionalModel.conectar(LoginModel.pegarIdusuario()));
+	}
+
+	public void locaisCarregados() {
+		ObservableList<Local> locais = listaDeLocais();
+		tabela.getItems().removeAll(locais);
+		tabela.setItems(locais);
 	}
 
 	public static class Local {

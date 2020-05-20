@@ -31,7 +31,7 @@
                   <MenuItem mnemonicParsing="false" text="Meus dados" />
                   <MenuItem mnemonicParsing="false" text="Meus produtos" />
                   <MenuItem mnemonicParsing="false" text="Meus serviços" />
-                  <MenuItem mnemonicParsing="false" text="Meus eventos" />
+                  <MenuItem fx:id="menuItemChat" mnemonicParsing="false" onAction="#actionMenuItemChat" text="Chat" />
                   <MenuItem fx:id="menuItemMeusLocais" mnemonicParsing="false" onAction="#actionMenuItemMeusLocais" text="Meus locais" />
                   <MenuItem fx:id="MenuItemSair" mnemonicParsing="false" onAction="#actionMenuItemSair" text="Sair" />
                </items>

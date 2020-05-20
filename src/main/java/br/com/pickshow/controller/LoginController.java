@@ -3,8 +3,9 @@ package br.com.pickshow.controller;
 import java.io.IOException;
 
 import br.com.pickshow.model.LoginModel;
-import br.com.pickshow.view.EscolherCadastro;
-import br.com.pickshow.view.Home;
+import br.com.pickshow.padroes.VerificarCampos;
+import br.com.pickshow.view.EscolherCadastroView;
+import br.com.pickshow.view.HomeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -58,7 +59,7 @@ public class LoginController implements VerificarCampos {
 			Stage stage = (Stage) btnEntrar.getScene().getWindow();
 			stage.close();
 			try {
-				new Home().start(new Stage());
+				new HomeView().start(new Stage());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -68,7 +69,7 @@ public class LoginController implements VerificarCampos {
 	@FXML
 	public void onMouseClickedLblCadastrar() {
 		try {
-			new EscolherCadastro().start(new Stage());
+			new EscolherCadastroView().start(new Stage());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

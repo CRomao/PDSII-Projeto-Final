@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.com.pickshow.model.LoginModel;
-import br.com.pickshow.view.Locais;
-import br.com.pickshow.view.MeusLocais;
+import br.com.pickshow.view.ConversasProfissionalView;
+import br.com.pickshow.view.LocaisProfissionalView;
+import br.com.pickshow.view.VisualizarLocaisView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -26,6 +26,8 @@ public class HomeController implements Initializable {
 	public MenuItem menuLocal;
 	@FXML
 	public MenuItem menuItemMeusDados;
+	@FXML
+	public MenuItem menuItemChat;
 	@FXML
 	public MenuItem menuItemMeusLocais;
 	@FXML
@@ -62,7 +64,7 @@ public class HomeController implements Initializable {
 	@FXML
 	public void actionMenuItemMeusLocais() {
 		try {
-			new MeusLocais().start(new Stage());
+			new LocaisProfissionalView().start(new Stage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +74,17 @@ public class HomeController implements Initializable {
 	@FXML
 	public void actionMenuLocal() {
 		try {
-			new Locais().start(new Stage());
+			new VisualizarLocaisView().start(new Stage());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void actionMenuItemChat() {
+		try {
+			new ConversasProfissionalView().start(new Stage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

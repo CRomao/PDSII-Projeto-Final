@@ -8,15 +8,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LocaisSelecionado extends Application {
+public class ConversasProfissionalView extends Application {
 
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("locais_selecionado"));
+		scene = new Scene(loadFXML("conversas_profissional"));
 		stage.setScene(scene);
 		stage.setResizable(false);
+		stage.setTitle("Minhas Conversas");
 		stage.show();
 	}
 

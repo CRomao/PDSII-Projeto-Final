@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.com.pickshow.model.LocaisModel;
-import br.com.pickshow.view.LocaisSelecionado;
-import br.com.pickshow.view.MeusLocais;
+import br.com.pickshow.controller.LocaisProfissionalController.Local;
+import br.com.pickshow.model.VisualizarLocaisModel;
+import br.com.pickshow.view.LocalSelecionadoClienteView;
+import br.com.pickshow.view.LocaisProfissionalView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,11 +21,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class LocaisController implements Initializable {
+public class VisualizarLocaisController implements Initializable {
 
 	
 	public static Local localSelecionado;
 	public static int doubleClicked = 0;
+	public Local primeiroClick, segundoClick;
+	
 	@FXML
 	public Button btnVisualizar;
 	@FXML
@@ -51,15 +54,6 @@ public class LocaisController implements Initializable {
 	}
 
 	@FXML
-	public void actionBtnCadastrar() {
-//		try {
-//			new CadastroMeusLocais().start(new Stage());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-	}
-
-	@FXML
 	public void actioncomboBoxPesquisa() {
 		String[] areas = { "ID", "Nome local", "Rua local" };
 		comboBoxPesquisa.getItems().removeAll(areas);
@@ -83,21 +77,41 @@ public class LocaisController implements Initializable {
 
 	private ObservableList<Local> listaDeLocais() {
 
-		return FXCollections.observableArrayList(LocaisModel.conectar());
+		return FXCollections.observableArrayList(VisualizarLocaisModel.conectar());
 	}
 
 	@FXML
 	public void onMouseClickedTabela() {
 		doubleClicked++;
-		if(doubleClicked == 2) {
-			localSelecionado = tabela.getSelectionModel().getSelectedItem();
-			try {
-				new LocaisSelecionado().start(new Stage());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			doubleClicked = 0;
+		
+		if (doubleClicked == 1) {
+			primeiroClick = tabela.getSelectionModel().getSelectedItem();
 		}
+
+		if (doubleClicked == 2) {
+			segundoClick = tabela.getSelectionModel().getSelectedItem();
+		}
+		
+		if(doubleClicked == 2) {
+			if (primeiroClick == segundoClick) {
+				localSelecionado = tabela.getSelectionModel().getSelectedItem();
+				System.out.println("CLIENTE: ");
+				System.out.print(localSelecionado.hashCode());
+				try {
+					new LocalSelecionadoClienteView().start(new Stage());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				doubleClicked = 0;
+			} else {
+				doubleClicked = 0;
+			}
+
+		}
+	}
+	
+	public static Local getLocalSelecionado() {
+		return localSelecionado;
 	}
 	
 	

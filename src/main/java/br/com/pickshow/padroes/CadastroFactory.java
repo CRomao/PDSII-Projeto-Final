@@ -2,8 +2,8 @@ package br.com.pickshow.padroes;
 
 import java.io.IOException;
 
-import br.com.pickshow.view.CadastroCliente;
-import br.com.pickshow.view.CadastroProfissional;
+import br.com.pickshow.view.CadastrarClienteView;
+import br.com.pickshow.view.CadastrarProfissionalView;
 import javafx.stage.Stage;
 
 public class CadastroFactory {
@@ -15,10 +15,10 @@ public class CadastroFactory {
 
 		switch (tipoCadastro) {
 		case CadastroFactory.PROFISSIONAL:
-			new CadastroProfissional().start(new Stage());
+			new CadastrarProfissionalView().start(new Stage());
 			break;
 		case CadastroFactory.CLIENTE:
-			new CadastroCliente().start(new Stage());
+			new CadastrarClienteView().start(new Stage());
 			break;
 		}
 

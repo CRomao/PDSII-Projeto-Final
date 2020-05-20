@@ -8,15 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Locais extends Application {
+public class CadastrarProfissionalView extends Application {
 
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("locais"));
+		scene = new Scene(loadFXML("cadastro_profissional"));
 		stage.setScene(scene);
-		stage.setResizable(false);
+		stage.setTitle("Cadastrar Profissional");
 		stage.show();
 	}
 

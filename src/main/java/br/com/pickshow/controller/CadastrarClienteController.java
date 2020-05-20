@@ -1,16 +1,16 @@
 package br.com.pickshow.controller;
 
-import br.com.pickshow.model.CadastroProfissionalModel;
+import br.com.pickshow.model.CadastrarClienteModel;
+import br.com.pickshow.padroes.VerificarCampos;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 //Classe para o controle dos Cadastros.
-public class CadastroProfissionalController implements VerificarCampos {
+public class CadastrarClienteController implements VerificarCampos {
 
 	@FXML
 	public TextField txtNome;
@@ -21,13 +21,11 @@ public class CadastroProfissionalController implements VerificarCampos {
 	@FXML
 	public TextField txtSenha;
 	@FXML
-	public TextField txtCpfCnpj;
+	public TextField txtCpf;
 	@FXML
-	public Button btnCadastrarProfissional;
+	public Button btnCadastrarCliente;
 	@FXML
 	public Button btnCancelar;
-	@FXML
-	public ComboBox comboBoxEscolhaArea;
 
 	@FXML
 	public void actionBtnCancelar() {
@@ -36,7 +34,7 @@ public class CadastroProfissionalController implements VerificarCampos {
 	}
 
 	@FXML
-	public void actionBtnCadastrarProfiss() {
+	public void actionBtnCadastrarCliente() {
 		String msg = verificarCampos();
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText(null);
@@ -45,17 +43,9 @@ public class CadastroProfissionalController implements VerificarCampos {
 		alert.showAndWait();
 
 		if (msg.equals("Cadastro realizado com sucesso!")) {
-			Stage stage = (Stage) btnCadastrarProfissional.getScene().getWindow();
+			Stage stage = (Stage) btnCadastrarCliente.getScene().getWindow();
 			stage.close();
 		}
-	}
-
-	@FXML
-	public void actionComboBoxEscolhaArea() {
-		String[] areas = { "Fotógrafo(a)", "Desenhista", "Cozinheiro(a)", "Pianista" };
-		comboBoxEscolhaArea.getItems().removeAll(areas);
-		comboBoxEscolhaArea.getItems().addAll(areas);
-
 	}
 
 	@Override
@@ -68,14 +58,11 @@ public class CadastroProfissionalController implements VerificarCampos {
 			return "Preencha seu email.";
 		} else if (txtSenha.getText().equals("")) {
 			return "Preencha sua senha.";
-		} else if (txtCpfCnpj.getText().equals("")) {
-			return "Preencha seu CPF ou CNPJ.";
-		} else if (comboBoxEscolhaArea.getSelectionModel().getSelectedIndex() == -1) {
-			return "Escolha a área de sua atuação.";
+		} else if (txtCpf.getText().equals("")) {
+			return "Preencha seu CPF.";
 		} else {
-			return CadastroProfissionalModel.conectar(txtNome.getText(), txtSobreNome.getText(), txtEmail.getText(),
-					txtSenha.getText(), txtCpfCnpj.getText(),
-					comboBoxEscolhaArea.getSelectionModel().getSelectedIndex());
+			return CadastrarClienteModel.conectar(txtNome.getText(), txtSobreNome.getText(), txtEmail.getText(),
+					txtSenha.getText(), txtCpf.getText());
 		}
 	}
 

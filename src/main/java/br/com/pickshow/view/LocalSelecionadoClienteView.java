@@ -8,14 +8,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class EscolherCadastro extends Application {
+public class LocalSelecionadoClienteView extends Application {
 
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("escolher_cadastro"));
+		scene = new Scene(loadFXML("local_selecionado_cliente"));
 		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.setTitle("Local");
 		stage.show();
 	}
 
