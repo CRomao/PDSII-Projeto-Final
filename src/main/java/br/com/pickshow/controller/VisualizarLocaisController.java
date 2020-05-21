@@ -77,7 +77,7 @@ public class VisualizarLocaisController implements Initializable {
 
 	private ObservableList<Local> listaDeLocais() {
 
-		return FXCollections.observableArrayList(VisualizarLocaisModel.conectar());
+		return FXCollections.observableArrayList(VisualizarLocaisModel.mostrarLocaisCadastrados());
 	}
 
 	@FXML

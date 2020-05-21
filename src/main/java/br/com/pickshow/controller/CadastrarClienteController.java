@@ -61,7 +61,7 @@ public class CadastrarClienteController implements VerificarCampos {
 		} else if (txtCpf.getText().equals("")) {
 			return "Preencha seu CPF.";
 		} else {
-			return CadastrarClienteModel.conectar(txtNome.getText(), txtSobreNome.getText(), txtEmail.getText(),
+			return CadastrarClienteModel.insert(txtNome.getText(), txtSobreNome.getText(), txtEmail.getText(),
 					txtSenha.getText(), txtCpf.getText());
 		}
 	}

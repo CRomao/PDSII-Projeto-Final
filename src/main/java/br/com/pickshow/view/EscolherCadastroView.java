@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a tela de Escolher o tipo de Cadastro
+ * 
+ * @author Eduardo Marculino
+ * 
+ */
+
 public class EscolherCadastroView extends Application {
 
 	private static Scene scene;

@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a tela Local Selecionado
+ * 
+ * @author Cicero Romão
+ * 
+ */
+
 public class LocalSelecionadoClienteView extends Application {
 
 	private static Scene scene;
@@ -17,7 +24,7 @@ public class LocalSelecionadoClienteView extends Application {
 		scene = new Scene(loadFXML("local_selecionado_cliente"));
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.setTitle("Local");
+		stage.setTitle("Local Selecionado");
 		stage.show();
 	}
 

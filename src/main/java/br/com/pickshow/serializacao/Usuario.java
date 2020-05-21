@@ -2,7 +2,14 @@ package br.com.pickshow.serializacao;
 
 import java.io.Serializable;
 
-//Classe para o cadastro dos usuários.
+/**
+ * Classe para os usuários que fizeram login na aplicação. Servindo para a
+ * serialização dos dados do login.
+ * 
+ * @author Cicero Romão
+ * 
+ */
+
 public class Usuario implements Serializable {
 
 	private String nome;
@@ -39,6 +46,5 @@ public class Usuario implements Serializable {
 	public void setConectado(boolean conectado) {
 		this.conectado = conectado;
 	}
-
 
 }

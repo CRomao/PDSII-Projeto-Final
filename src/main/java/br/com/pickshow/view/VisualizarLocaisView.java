@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a tela Visualizar Locais
+ * 
+ * @author Cicero Romão
+ * 
+ */
+
 public class VisualizarLocaisView extends Application {
 
 	private static Scene scene;
@@ -17,7 +24,7 @@ public class VisualizarLocaisView extends Application {
 		scene = new Scene(loadFXML("visualizar_locais"));
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.setTitle("Locais");
+		stage.setTitle("Visualizar Locais");
 		stage.show();
 	}
 

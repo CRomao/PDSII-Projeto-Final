@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a tela Local Selecionado com Chat
+ * 
+ * @author Cicero Romão
+ * 
+ */
+
 public class LocalSelecionadoClienteChatView extends Application {
 
 	private static Scene scene;
@@ -17,7 +24,7 @@ public class LocalSelecionadoClienteChatView extends Application {
 		scene = new Scene(loadFXML("local_selecionado_cliente_chat"));
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.setTitle("Local");
+		stage.setTitle("Local Selecionado Chat");
 		stage.show();
 	}
 

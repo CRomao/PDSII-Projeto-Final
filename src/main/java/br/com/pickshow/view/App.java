@@ -9,7 +9,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * JavaFX App
+ * Classe responsável por carregar a tela de Login da aplicação.
+ * 
+ * @author Eduardo Marculino
+ * 
  */
 public class App extends Application {
 

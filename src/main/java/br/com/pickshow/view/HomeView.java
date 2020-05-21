@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a Home, após fazer o login.
+ * 
+ * @author Eduardo Marculino
+ * 
+ */
+
 public class HomeView extends Application {
 
 	private static Scene scene;

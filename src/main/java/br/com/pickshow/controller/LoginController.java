@@ -11,8 +11,8 @@ import java.util.ResourceBundle;
 
 import br.com.pickshow.model.LoginModel;
 import br.com.pickshow.padroes.VerificarCampos;
-import br.com.pickshow.serializacao.DesserializarListaUsuario;
-import br.com.pickshow.serializacao.SerializarListaUsuario;
+import br.com.pickshow.serializacao.DesserializarUsuario;
+import br.com.pickshow.serializacao.SerializarUsuario;
 import br.com.pickshow.serializacao.Usuario;
 import br.com.pickshow.view.EscolherCadastroView;
 import br.com.pickshow.view.HomeView;
@@ -101,7 +101,7 @@ public class LoginController implements VerificarCampos, Initializable {
 		} else if (comboBoxEscolha.getSelectionModel().getSelectedIndex() == -1) {
 			return "Escolha que tipo de usuário você é.";
 		} else {
-			return LoginModel.conectar(comboBoxEscolha.getSelectionModel().getSelectedIndex(), txtEmail.getText(),
+			return LoginModel.fazerLogin(comboBoxEscolha.getSelectionModel().getSelectedIndex(), txtEmail.getText(),
 					txtSenha.getText());
 		}
 	}
@@ -116,46 +116,30 @@ public class LoginController implements VerificarCampos, Initializable {
 
 	}
 
-	public void ser() {
+	public void ser() throws IOException {
+		FileWriter arq = null;
+		arq = new FileWriter("verificacao.txt");
+		PrintWriter gravarArq = new PrintWriter(arq);
+
 		if (checkConectado.isSelected()) {
 			Usuario usu = new Usuario(txtEmail.getText(), txtSenha.getText(), checkConectado.isSelected());
-			SerializarListaUsuario ser = new SerializarListaUsuario(usu);
+			SerializarUsuario ser = new SerializarUsuario(usu);
 			ser.serializar();
-			FileWriter arq = null;
-			try {
-				arq = new FileWriter("verificacao.txt");
-				PrintWriter gravarArq = new PrintWriter(arq);
-				gravarArq.println(1);
-				arq.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+			gravarArq.println(1);
 		} else {
-			FileWriter arq = null;
-			try {
-				arq = new FileWriter("verificacao.txt");
-				PrintWriter gravarArq = new PrintWriter(arq);
-				gravarArq.println(0);
-				arq.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+			gravarArq.println(0);
 		}
+		arq.close();
 	}
 
 	public void des() throws IOException {
 		int flag = 0;
-		try {
-			BufferedReader buffRead = new BufferedReader(new FileReader("verificacao.txt"));
-			flag = Integer.parseInt(buffRead.readLine());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+
+		BufferedReader buffRead = new BufferedReader(new FileReader("verificacao.txt"));
+		flag = Integer.parseInt(buffRead.readLine());
 
 		if (flag == 1) {
-			DesserializarListaUsuario desser = new DesserializarListaUsuario("arquivo.ser");
+			DesserializarUsuario desser = new DesserializarUsuario("arquivo.ser");
 			desser.desserializar();
 			Usuario usu = new Usuario("", "", false);
 			usu = desser.getLista();

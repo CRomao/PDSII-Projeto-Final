@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a tela das Conversas do Profissional.
+ * 
+ * @author Cicero Romão
+ * 
+ */
+
 public class ConversasProfissionalView extends Application {
 
 	private static Scene scene;

@@ -165,7 +165,7 @@ public class LocaisProfissionalController implements Initializable {
 
 	private ObservableList<Local> listaDeLocais() {
 
-		return FXCollections.observableArrayList(LocaisProfissionalModel.conectar(LoginModel.pegarIdusuario()));
+		return FXCollections.observableArrayList(LocaisProfissionalModel.selecionarLocais(LoginModel.pegarIdusuario()));
 	}
 
 	public void locaisCarregados() {

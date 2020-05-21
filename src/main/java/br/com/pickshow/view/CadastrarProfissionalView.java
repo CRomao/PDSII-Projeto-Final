@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar a tela do Cadastro de Profissional.
+ * 
+ * @author Eduardo Marculino
+ * 
+ */
+
 public class CadastrarProfissionalView extends Application {
 
 	private static Scene scene;

@@ -5,14 +5,26 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-//Classe para Desserializar a lista.
-public class DesserializarListaUsuario {
+/**
+ * Classe para desserializar os dados login do usuário do 'arquivo.ser'.
+ *
+ * @author Cicero Romão
+ * 
+ */
+
+public class DesserializarUsuario {
 
 	Usuario usu = null;
 	FileInputStream arquivo = null;
 
-	// Construtor que vai receber o nome do arquivo.
-	public DesserializarListaUsuario(String arq) {
+	/**
+	 * Método construtor para receber o arquivo.
+	 * 
+	 * @author Cicero Romão
+	 * @param arq String - arquivo para ser desserializado.
+	 * @return void - Sem retorno.
+	 */
+	public DesserializarUsuario(String arq) {
 		try {
 			this.arquivo = new FileInputStream(arq);
 		} catch (FileNotFoundException e) {
@@ -20,10 +32,15 @@ public class DesserializarListaUsuario {
 		}
 	}
 
-	// Função que vai fazer a desserialização.
+	/**
+	 * Método para a desserialização dos dados do usuário, onde lê os dados e
+	 * atribui a variável usu.
+	 * 
+	 * @author Cicero Romão
+	 * @return void - Sem retorno.
+	 */
 	public void desserializar() {
 		try {
-			// Pega o conteudo do arquivo, lê e joga no objeto lista dessa classe.
 			ObjectInputStream entrada = new ObjectInputStream(arquivo);
 			this.usu = (Usuario) entrada.readObject();
 			entrada.close();
@@ -36,7 +53,8 @@ public class DesserializarListaUsuario {
 		}
 	}
 
-	// Função para retornar a lista depois de desserializada.
+	/** Método para retornar a lista depois de desserializada.
+	 * @return Usuario - Usuário desserializado. */
 	public Usuario getLista() {
 		return usu;
 	}

@@ -8,6 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe responsável por carregar os Locais do Profissional
+ * 
+ * @author Cicero Romão
+ * 
+ */
+
 public class LocaisProfissionalView extends Application {
 
 	private static Scene scene;
