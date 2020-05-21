@@ -32,7 +32,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <CheckBox layoutX="325.0" layoutY="288.0" mnemonicParsing="false" text="Continuar conectado" />
+            <CheckBox fx:id="checkConectado" layoutX="325.0" layoutY="288.0" mnemonicParsing="false" text="Continuar conectado" />
             <Button fx:id="btnEntrar" layoutX="201.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionBtnEntrar" prefHeight="45.0" prefWidth="168.0" text="Entrar">
                <cursor>
                   <Cursor fx:constant="HAND" />
