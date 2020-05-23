@@ -30,7 +30,7 @@ public class CadastrarProfissionalModel {
 	 * @param areaAtuacao int - ID do comboBox da aréa de atuação.
 	 * @return String - Mensagem informando se o cadastro foi realizado ou não.
 	 */
-	public static String conectar(String nome, String sobrenome, String email, String senha, String cpfCnpj,
+	public static String insert(String nome, String sobrenome, String email, String senha, String cpfCnpj,
 			int areaAtuacao) {
 		try {
 			Connection conn = ConnectionSingleton.getConexao();

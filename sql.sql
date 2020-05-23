@@ -133,3 +133,11 @@ delete from ad_profissional
 drop table AD_tipoLocal
 
 delete from ad_cliente
+
+
+SELECT l.id, l.nomeLocal, l.ruaLocal, l.telefone, tl.tipo FROM AD_local l
+JOIN ad_tipoLocal tl ON l.id_tipoLocal = tl.id where l.id_profissional =1
+ 
+ 
+SELECT pro.id, pro.email, pro.senha, l.id, l.nomeLocal, l.ruaLocal, l.telefone FROM AD_local l
+JOIN ad_profissional pro ON l.id_profissional = pro.id where l.id_profissional =1

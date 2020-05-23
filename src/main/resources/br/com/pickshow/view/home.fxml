@@ -40,7 +40,7 @@
       </MenuBar>
       <Line endX="100.0" endY="155.0" layoutX="108.0" layoutY="334.0" startX="100.0" startY="-308.0" />
       <Line endX="399.0" layoutX="285.0" layoutY="301.0" startX="-77.5" />
-      <ImageView fitHeight="109.0" fitWidth="176.0" layoutX="13.0" layoutY="291.0" pickOnBounds="true">
+      <ImageView fx:id="img2" fitHeight="109.0" fitWidth="176.0" layoutX="13.0" layoutY="291.0" pickOnBounds="true">
          <image>
             <Image url="@../../../../../java/img/home-rec.jpg" />
          </image>
@@ -50,7 +50,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="109.0" fitWidth="190.0" layoutX="16.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img1" fitHeight="109.0" fitWidth="190.0" layoutX="16.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/home-corp.jpg" />
          </image>
@@ -70,56 +70,60 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="16.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star1" fitHeight="36.0" fitWidth="29.0" layoutX="16.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="50.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star2" fitHeight="36.0" fitWidth="29.0" layoutX="50.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="87.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star3" fitHeight="36.0" fitWidth="29.0" layoutX="87.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="121.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star4" fitHeight="36.0" fitWidth="29.0" layoutX="121.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="156.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star5" fitHeight="36.0" fitWidth="29.0" layoutX="156.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="16.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star6" fitHeight="36.0" fitWidth="29.0" layoutX="16.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="50.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star7" fitHeight="36.0" fitWidth="29.0" layoutX="50.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="87.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star8" fitHeight="36.0" fitWidth="29.0" layoutX="87.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="121.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star9" fitHeight="36.0" fitWidth="29.0" layoutX="121.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="156.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star10" fitHeight="36.0" fitWidth="29.0" layoutX="156.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../java/img/star.png" />
          </image>
       </ImageView>
       <Button fx:id="sair" disable="true" layoutX="669.0" layoutY="463.0" mnemonicParsing="false" onAction="#actionSair" prefHeight="25.0" prefWidth="1.0" />
+      <ImageView fx:id="eventos" fitHeight="211.0" fitWidth="373.0" layoutX="260.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="colab1" fitHeight="136.0" fitWidth="105.0" layoutX="247.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="colab2" fitHeight="136.0" fitWidth="105.0" layoutX="420.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="colab3" fitHeight="136.0" fitWidth="105.0" layoutX="547.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

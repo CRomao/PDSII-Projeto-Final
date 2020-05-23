@@ -1,46 +1,50 @@
 package br.com.pickshow.chat;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 
-
+/**
+ * Classe para poder ter os objetos usuários.
+ * 
+ * @author Cicero Romão
+ * 
+ */
 //Classe para os usuários.
 
 public class User {
 
-private String name;
-private BufferedReader inputClient;
-private DataOutputStream outputClient;
-    
-    public User(String nomeUser, BufferedReader input, DataOutputStream output ){
-        setName(nomeUser);
-        setInputClient(input);
-        setOutputClient(output);
-    }
+	private String name;
+	private BufferedReader inputClient;
+	private DataOutputStream outputClient;
 
-    public String getName() {
-        return name;
-    }
+	public User(String nomeUser, BufferedReader input, DataOutputStream output) {
+		setName(nomeUser);
+		setInputClient(input);
+		setOutputClient(output);
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public BufferedReader getInputClient() {
-        return inputClient;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setInputClient(BufferedReader inputClient) {
-        this.inputClient = inputClient;
-    }
+	public BufferedReader getInputClient() {
+		return inputClient;
+	}
 
-    public DataOutputStream getOutputClient() {
-        return outputClient;
-    }
+	public void setInputClient(BufferedReader inputClient) {
+		this.inputClient = inputClient;
+	}
 
-    public void setOutputClient(DataOutputStream outputClient) {
-        this.outputClient = outputClient;
-    }
+	public DataOutputStream getOutputClient() {
+		return outputClient;
+	}
 
-
+	public void setOutputClient(DataOutputStream outputClient) {
+		this.outputClient = outputClient;
+	}
 
 }

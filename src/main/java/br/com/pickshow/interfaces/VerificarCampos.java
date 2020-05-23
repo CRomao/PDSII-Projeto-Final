@@ -1,4 +1,4 @@
-package br.com.pickshow.padroes;
+package br.com.pickshow.interfaces;
 
 /**
  * Interface para que as classes que sejam referentes a cadastros, possam

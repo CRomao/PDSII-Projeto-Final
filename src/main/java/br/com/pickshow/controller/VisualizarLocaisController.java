@@ -20,14 +20,20 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-//Classe para o controle dos Cadastros.
+/**
+ * Classe controller para poder ter o controle da listagem de todos os locais
+ * cadastrados no sistema, implementando a interface Initializable para poder
+ * alterar alguns campos ao iniciar a tela.
+ * 
+ * @author Cicero Romão
+ * 
+ */
 public class VisualizarLocaisController implements Initializable {
 
-	
 	public static Local localSelecionado;
 	public static int doubleClicked = 0;
 	public Local primeiroClick, segundoClick;
-	
+
 	@FXML
 	public Button btnVisualizar;
 	@FXML
@@ -47,12 +53,25 @@ public class VisualizarLocaisController implements Initializable {
 	@FXML
 	public TableColumn<Local, String> tipoLocalCol;
 
+	/**
+	 * Método para poder verificar quando o usuário clicou em voltar, para poder
+	 * capturar a tela atual e fechar ela.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actionBtnVoltar() {
 		Stage stage = (Stage) btnVoltar.getScene().getWindow();
 		stage.close();
 	}
 
+	/**
+	 * Método para popular o comboBox de pesquisar algum local.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actioncomboBoxPesquisa() {
 		String[] areas = { "ID", "Nome local", "Rua local" };
@@ -61,6 +80,14 @@ public class VisualizarLocaisController implements Initializable {
 
 	}
 
+	/**
+	 * Método para poder iniciarlizar a tabela com as colunas referentes a classe
+	 * interna Local, e para também caregar todos os locais cadastrados no sistema
+	 * na tabela.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		nomeProprietario.setCellValueFactory(new PropertyValueFactory<>("nomeProprietario"));
@@ -75,15 +102,34 @@ public class VisualizarLocaisController implements Initializable {
 
 	}
 
+	/**
+	 * Método para retornar todos os locais cadastrados.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 * @return ObservableList<Local> - Lista dos locais cadastrados no sistema.
+	 */
 	private ObservableList<Local> listaDeLocais() {
 
 		return FXCollections.observableArrayList(VisualizarLocaisModel.mostrarLocaisCadastrados());
 	}
 
+	/**
+	 * Método para verificar se o usuário clicou duas vezes em um registro da
+	 * tabela, onde a cada clique na tabela é incrementado na variável
+	 * doubleClicked, e é feito a verificação abaixo. Essa verificação basicamente
+	 * verifica se o usuário clicou duas vezes no mesmo registro - e não uma vez no
+	 * registro A e outra no B. Caso for no mesmo registro, é capturado o registro
+	 * clicado e atribuído na variável localSelecionado e aberto a tela de
+	 * LocalSelecionadoClienteView.
+	 * 
+	 * @author Cicero Romão
+	 * @see LocalSelecionadoClienteView
+	 */
 	@FXML
 	public void onMouseClickedTabela() {
 		doubleClicked++;
-		
+
 		if (doubleClicked == 1) {
 			primeiroClick = tabela.getSelectionModel().getSelectedItem();
 		}
@@ -91,12 +137,10 @@ public class VisualizarLocaisController implements Initializable {
 		if (doubleClicked == 2) {
 			segundoClick = tabela.getSelectionModel().getSelectedItem();
 		}
-		
-		if(doubleClicked == 2) {
+
+		if (doubleClicked == 2) {
 			if (primeiroClick == segundoClick) {
 				localSelecionado = tabela.getSelectionModel().getSelectedItem();
-				System.out.println("CLIENTE: ");
-				System.out.print(localSelecionado.hashCode());
 				try {
 					new LocalSelecionadoClienteView().start(new Stage());
 				} catch (IOException e) {
@@ -109,13 +153,13 @@ public class VisualizarLocaisController implements Initializable {
 
 		}
 	}
-	
-	public static Local getLocalSelecionado() {
-		return localSelecionado;
-	}
-	
-	
 
+	/**
+	 * Classe interna para servir como molde para a tabela dos locais.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	public static class Local {
 		private final SimpleStringProperty nomeProprietario;
 		private final SimpleStringProperty nomeLocal;

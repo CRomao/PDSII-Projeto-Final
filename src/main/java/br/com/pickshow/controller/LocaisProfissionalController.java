@@ -27,6 +27,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+/**
+ * Classe controller para poder ter o controle da listagem dos locais do
+ * profissional que está logado, implementando a interface Initializable para
+ * poder alterar alguns campos ao iniciar a tela.
+ * 
+ * @author Cicero Romão
+ * 
+ */
 public class LocaisProfissionalController implements Initializable {
 
 	public static int verifyButton = 0;
@@ -57,12 +65,27 @@ public class LocaisProfissionalController implements Initializable {
 	@FXML
 	public TableColumn<Local, String> tipoLocalCol;
 
+	/**
+	 * Método para poder verificar quando o usuário clicou em voltar, para poder
+	 * capturar a tela atual e fechar ela.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actionBtnVoltar() {
 		Stage stage = (Stage) btnVoltar.getScene().getWindow();
 		stage.close();
 	}
 
+	/**
+	 * Método para poder chamar a tela de cadastrar um novo local, onde é atribuído
+	 * a variável verifyButton o valor 1, informando que é um cadastro novo, e não a
+	 * alteração de um já existente.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actionBtnCadastrar() {
 		verifyButton = 1;
@@ -73,10 +96,29 @@ public class LocaisProfissionalController implements Initializable {
 		}
 	}
 
+	/**
+	 * Método para a função de atualizar a tabela com os locais assim que clicar no
+	 * botão de atualizar.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
+	@FXML
 	public void actionBtnAtualizar() {
 		locaisCarregados();
 	}
 
+	/**
+	 * Método para verificar se o usuário clicou duas vezes em um registro da
+	 * tabela, onde a cada clique na tabela é incrementado na variável
+	 * doubleClicked, e é feito a verificação abaixo. Essa verificação basicamente
+	 * verifica se o usuário clicou duas vezes no mesmo registro - e não uma vez no
+	 * registro A e outra no B. Caso for no mesmo registro, é capturado o registro
+	 * clicado e atribuído na variável localSelecionado.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void onMouseClickedTabela() {
 		doubleClicked++;
@@ -100,6 +142,15 @@ public class LocaisProfissionalController implements Initializable {
 		}
 	}
 
+	/**
+	 * Método para fazer a exclusão de algum local. É verificado se o usuário
+	 * selecionou algum registro. Se sim, pede a confirmação de exclusão daquele
+	 * registro. Se sim, faz acesso ao método deletarRegistroLocal na classe
+	 * LocaisProfissionalModel.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actionBtnDeletar() {
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -135,6 +186,13 @@ public class LocaisProfissionalController implements Initializable {
 		}
 	}
 
+	/**
+	 * Método para chamar a tela de cadastro, quando o usuário clicar duas vezes em
+	 * um registro da tabela.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	public void chamarTela() {
 		try {
 			new CadastrarLocaisView().start(new Stage());
@@ -143,6 +201,12 @@ public class LocaisProfissionalController implements Initializable {
 		}
 	}
 
+	/**
+	 * Método para popular o comboBox de pesquisar algum local.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actioncomboBoxPesquisa() {
 		String[] areas = { "Código", "Nome local", "Rua local" };
@@ -151,6 +215,14 @@ public class LocaisProfissionalController implements Initializable {
 
 	}
 
+	/**
+	 * Método para iniciar alguns campos antes da iniciação da tela, campos que são
+	 * as colunas da tabela, chamando o metódo locaisCarregados(), para preencher os
+	 * valores.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		codCol.setCellValueFactory(new PropertyValueFactory<>("cod"));
@@ -163,17 +235,39 @@ public class LocaisProfissionalController implements Initializable {
 
 	}
 
+	/**
+	 * Método retornar a lista de locais carregadas do banco de dados, onde acessa o
+	 * método selecionarLocais da classe LocaisProfissionalModel.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 * @return ObservableList<Local> - Retorna a lista dos locais daquele
+	 *         profissional.
+	 */
 	private ObservableList<Local> listaDeLocais() {
 
 		return FXCollections.observableArrayList(LocaisProfissionalModel.selecionarLocais(LoginModel.pegarIdusuario()));
 	}
 
+	/**
+	 * Método para apagar o conteúdo da tabela e preencher novamente - caso haja
+	 * alguma alteração.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	public void locaisCarregados() {
 		ObservableList<Local> locais = listaDeLocais();
 		tabela.getItems().removeAll(locais);
 		tabela.setItems(locais);
 	}
 
+	/**
+	 * Classe interna para servir como molde para a tabela dos locais.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	public static class Local {
 		private final SimpleIntegerProperty cod;
 		private final SimpleStringProperty nomeLocal;

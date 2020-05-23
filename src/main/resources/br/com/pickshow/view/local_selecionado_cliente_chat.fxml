@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -24,11 +26,6 @@
             <Font size="15.0" />
          </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="153.0" layoutX="270.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
-      <Label layoutX="350.0" layoutY="74.0" text="Foto do Local">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfc6cd" height="213.0" layoutX="14.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="153.0" layoutX="31.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
       <TextArea fx:id="txtAreaInformacoes" editable="false" layoutX="270.0" layoutY="176.0" prefHeight="171.0" prefWidth="309.0" />
@@ -49,5 +46,15 @@
             <Font size="25.0" />
          </font>
       </Label>
+      <ImageView fx:id="imgLocal" fitHeight="146.0" fitWidth="272.0" layoutX="295.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../img/fotoLocal.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgRecomend" fitHeight="91.0" fitWidth="199.0" layoutX="67.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../img/festaPiseiro.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

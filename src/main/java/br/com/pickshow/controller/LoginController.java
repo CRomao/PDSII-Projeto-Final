@@ -9,8 +9,8 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.pickshow.interfaces.VerificarCampos;
 import br.com.pickshow.model.LoginModel;
-import br.com.pickshow.padroes.VerificarCampos;
 import br.com.pickshow.serializacao.DesserializarUsuario;
 import br.com.pickshow.serializacao.SerializarUsuario;
 import br.com.pickshow.serializacao.Usuario;
@@ -27,7 +27,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-//Classe para o controle dos Cadastros.
+/**
+ * Classe controller para o login, onde é a primeira tela a ser chamada na
+ * aplicação.
+ * 
+ * @author Cicero Romão
+ * 
+ */
 public class LoginController implements VerificarCampos, Initializable {
 
 	@FXML
@@ -43,14 +49,35 @@ public class LoginController implements VerificarCampos, Initializable {
 	@FXML
 	public CheckBox checkConectado;
 
+	/**
+	 * Método para retornar o nome do usuário, pelo método pegarNomeUsuario da
+	 * classe LoginModel.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	public static String pegarNomeUsuario() {
 		return LoginModel.pegarNomeUsuario();
 	}
 
+	/**
+	 * Método para retornar o id do usuário, pelo método pegarIdusuario da classe
+	 * LoginModel.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	public static int pegarIdusuario() {
 		return LoginModel.pegarIdusuario();
 	}
 
+	/**
+	 * Método para popular o comboBox do tipo de usuário, onde ao clicar nele,
+	 * sempre é removido os valores que tem e em seguida inseridos novamente.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actionComboBoxEscolha() {
 		String[] tipo = { "Profissional", "Cliente" };
@@ -59,6 +86,14 @@ public class LoginController implements VerificarCampos, Initializable {
 
 	}
 
+	/**
+	 * Método para poder controlar a ação do botão de entrar na tela de login, onde
+	 * ele faz chamada da função de verificarCampos(), para ver se os campos foram
+	 * preenchidos. Se sim, ele chama a tela home.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void actionBtnEntrar() {
 		String msg = verificarCampos();
@@ -83,6 +118,13 @@ public class LoginController implements VerificarCampos, Initializable {
 		}
 	}
 
+	/**
+	 * Método para poder abrir a tela de escolher o cadastro que o usuário quer
+	 * realizar. Isso ocorre quando ele clica na label 'quero me cadastrar.'.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@FXML
 	public void onMouseClickedLblCadastrar() {
 		try {
@@ -92,6 +134,17 @@ public class LoginController implements VerificarCampos, Initializable {
 		}
 	}
 
+	/**
+	 * Método para poder verificar os campos da tela, para saber se ficou algum
+	 * campo ser preenchido. Caso todos estejam preencidos e selecionados, é chamado
+	 * o método 'fazerLogin' da classe LoginModel, passando o conteúdo dos campos da
+	 * tela, e que terá um retorno em String, mostrando se o cadastro deu certo.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 * @return String - Dependendo de qual condição caia, será informado uma
+	 *         mensagem específica.
+	 */
 	@Override
 	public String verificarCampos() {
 		if (txtEmail.getText().equals("")) {
@@ -106,6 +159,14 @@ public class LoginController implements VerificarCampos, Initializable {
 		}
 	}
 
+	/**
+	 * Método para poder chamar a função de desserializar os dados do arquivo
+	 * 'arquivo.ser', antes de abrir a tela do login, isso serve para saber se ele
+	 * marcou o checkBox se quer continuar conectado.
+	 * 
+	 * @author Cicero Romão
+	 * 
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
@@ -116,6 +177,17 @@ public class LoginController implements VerificarCampos, Initializable {
 
 	}
 
+	/**
+	 * Método para poder serializar os dados do login do usuário, onde é criado um
+	 * arquivo chamado 'verificacao.txt' e se o checkBox de 'continuar conectado'
+	 * estiver marcado, ele faz o processo de serializar os dados do login no
+	 * arquivo 'arquivo.ser', e no arquivo 'verificacao.txt' preenche com o valor 1,
+	 * informando que quando a aplicação iniciar novamente, ele verifique e se for
+	 * 1, preencha os campos da tela login ao inciar a tela.
+	 * 
+	 * @author Cicero Romão
+	 * @see A classe SerializarUsuario implementa as operações de serialização.
+	 */
 	public void ser() throws IOException {
 		FileWriter arq = null;
 		arq = new FileWriter("verificacao.txt");
@@ -132,6 +204,15 @@ public class LoginController implements VerificarCampos, Initializable {
 		arq.close();
 	}
 
+	/**
+	 * Método para poder desserializar os dados do usuário que estão no arquivo
+	 * 'arquivo.ser'. Inicialmente é feito a leitura do arquivo 'verificacao.txt',
+	 * se o conteúdo for 1, ele faz o processo de desserialização e carrega para os
+	 * campos da tela do login.
+	 * 
+	 * @author Cicero Romão
+	 * @see A classe DesserializarUsuario implementa as operações de desserialização.
+	 */
 	public void des() throws IOException {
 		int flag = 0;
 
@@ -141,8 +222,7 @@ public class LoginController implements VerificarCampos, Initializable {
 		if (flag == 1) {
 			DesserializarUsuario desser = new DesserializarUsuario("arquivo.ser");
 			desser.desserializar();
-			Usuario usu = new Usuario("", "", false);
-			usu = desser.getLista();
+			Usuario usu = desser.getLista();
 
 			if (usu.isConectado()) {
 				txtEmail.setText(usu.getNome());

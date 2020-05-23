@@ -48,7 +48,7 @@ public class LoginModel {
 			ResultSet rs = ps.executeQuery();
 			
 
-			while (rs.next()) {
+			if(rs.next()) {
 				login = true;
 				idUser = rs.getInt(1);
 				nomeUser = rs.getString(2);
