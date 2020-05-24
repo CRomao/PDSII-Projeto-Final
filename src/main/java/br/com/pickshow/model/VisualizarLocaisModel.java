@@ -28,8 +28,7 @@ public class VisualizarLocaisModel {
 	 * locais. Em seguida retorna os locais.
 	 * 
 	 * @author Cicero Romão
-	 * @return ArrayList<LocaisProfissionalController.Local> - Retorna o ArrayList
-	 *         com todos os locais.
+	 * @return ArrayList - Retorna o ArrayList com todos os locais.
 	 */
 	public static ArrayList<VisualizarLocaisController.Local> mostrarLocaisCadastrados() {
 		locais.clear();

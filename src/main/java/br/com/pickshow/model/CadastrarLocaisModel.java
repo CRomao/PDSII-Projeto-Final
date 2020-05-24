@@ -10,8 +10,6 @@ import br.com.pickshow.padroes.ConnectionSingleton;
  * Classe model para o profissional cadastrar o seu local, onde será feita a
  * operação de inserção de um novo local no banco de dados.
  * 
- * @see A classe CadastrarLocaisController.java, é nela que o método será
- *      chamado.
  * @author Cicero Romão
  * 
  */
@@ -67,18 +65,18 @@ public class CadastrarLocaisModel {
 	 * @param areaInformacoes String - Informações sobre o local.
 	 * @param tipoAreaLocal   int - ID do tipo de Local(referente a tabela
 	 *                        AD_tipoLocal).
-	 * @param idLoal          int - ID do local.
+	 * @param idLocal          int - ID do local.
 	 * @return String - Mensagem informando se a alteração foi realizada ou não.
 	 */
 	public static String update(String nomeLocal, String ruaLocal, String telefoneContato, String areaInformacoes,
-			int tipoAreaLocal, int idLoal) {
+			int tipoAreaLocal, int idLocal) {
 		try {
 			Connection conn = ConnectionSingleton.getConexao();
 			PreparedStatement ps;
 
 			String sql = "UPDATE AD_local SET nomeLocal = '" + nomeLocal + "', ruaLocal = '" + ruaLocal
 					+ "', telefone = '" + telefoneContato + "', " + "informacoesLocal = '" + areaInformacoes
-					+ "', id_tipoLocal = '" + tipoAreaLocal + "' WHERE id = " + idLoal + ";";
+					+ "', id_tipoLocal = '" + tipoAreaLocal + "' WHERE id = " + idLocal + ";";
 
 			ps = conn.prepareStatement(sql);
 			ps.execute();
@@ -98,7 +96,7 @@ public class CadastrarLocaisModel {
 	 * para pegar a informação do local e retornar ela.
 	 * 
 	 * @author Cicero Romão
-	 * @param idLoal int - ID do local.
+	 * @param idLocal int - ID do local.
 	 * @return String - Retorna a informação do local selecionado para alteração.
 	 */
 	public static String selectInformacoesLocal(int idLocal) {

@@ -48,13 +48,14 @@ public class LoginController implements VerificarCampos, Initializable {
 	public ComboBox comboBoxEscolha;
 	@FXML
 	public CheckBox checkConectado;
+	public static int tipoUsuario;
 
 	/**
 	 * Método para retornar o nome do usuário, pelo método pegarNomeUsuario da
 	 * classe LoginModel.
 	 * 
 	 * @author Cicero Romão
-	 * 
+	 * @return String - Nome do usuário logado.
 	 */
 	public static String pegarNomeUsuario() {
 		return LoginModel.pegarNomeUsuario();
@@ -65,7 +66,7 @@ public class LoginController implements VerificarCampos, Initializable {
 	 * LoginModel.
 	 * 
 	 * @author Cicero Romão
-	 * 
+	 * @return int - ID do usuário logado.
 	 */
 	public static int pegarIdusuario() {
 		return LoginModel.pegarIdusuario();
@@ -105,6 +106,7 @@ public class LoginController implements VerificarCampos, Initializable {
 		alert.showAndWait();
 
 		if (msg.equals("Login realizado com sucesso!")) {
+			if(comboBoxEscolha.getSelectionModel().getSelectedItem().equals("Cliente"))tipoUsuario = 1;
 			Stage stage = (Stage) btnEntrar.getScene().getWindow();
 			stage.close();
 			try {
@@ -186,7 +188,6 @@ public class LoginController implements VerificarCampos, Initializable {
 	 * 1, preencha os campos da tela login ao inciar a tela.
 	 * 
 	 * @author Cicero Romão
-	 * @see A classe SerializarUsuario implementa as operações de serialização.
 	 */
 	public void ser() throws IOException {
 		FileWriter arq = null;
@@ -211,7 +212,6 @@ public class LoginController implements VerificarCampos, Initializable {
 	 * campos da tela do login.
 	 * 
 	 * @author Cicero Romão
-	 * @see A classe DesserializarUsuario implementa as operações de desserialização.
 	 */
 	public void des() throws IOException {
 		int flag = 0;

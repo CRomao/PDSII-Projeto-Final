@@ -9,8 +9,6 @@ import br.com.pickshow.padroes.ConnectionSingleton;
  * Classe model para cadastrar profissional, onde será feita a operação de
  * inserção de um novo profissional no banco de dados.
  * 
- * @see A classe CadastrarProfissionalController.java, é nela que o método será
- *      chamado.
  * @author Cicero Romão
  * 
  */

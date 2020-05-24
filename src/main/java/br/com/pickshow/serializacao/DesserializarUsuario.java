@@ -22,7 +22,6 @@ public class DesserializarUsuario {
 	 * 
 	 * @author Cicero Romão
 	 * @param arq String - arquivo para ser desserializado.
-	 * @return void - Sem retorno.
 	 */
 	public DesserializarUsuario(String arq) {
 		try {
@@ -37,7 +36,6 @@ public class DesserializarUsuario {
 	 * atribui a variável usu.
 	 * 
 	 * @author Cicero Romão
-	 * @return void - Sem retorno.
 	 */
 	public void desserializar() {
 		try {
@@ -53,8 +51,11 @@ public class DesserializarUsuario {
 		}
 	}
 
-	/** Método para retornar a lista depois de desserializada.
-	 * @return Usuario - Usuário desserializado. */
+	/**
+	 * Método para retornar a lista depois de desserializada.
+	 * 
+	 * @return Usuario - Usuário desserializado.
+	 */
 	public Usuario getLista() {
 		return usu;
 	}

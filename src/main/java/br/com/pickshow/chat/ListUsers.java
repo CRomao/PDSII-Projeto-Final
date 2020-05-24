@@ -1,8 +1,7 @@
 package br.com.pickshow.chat;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Classe para a lista de usuários.
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 
 public class ListUsers {
 
-	public ArrayList<User> listUsers = new ArrayList<>();
+	public List<User> listUsers = new ArrayList<>();
 
 	public void addNewUser(User newUser) {
 		listUsers.add(newUser);

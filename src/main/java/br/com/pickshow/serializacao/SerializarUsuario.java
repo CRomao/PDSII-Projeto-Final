@@ -25,7 +25,6 @@ public class SerializarUsuario {
 	 * seguida escreve o usuáio logado nele - caso o usuário deseje permanecer
 	 * conectado.
 	 * 
-	 * @return void - Sem retorno.
 	 */
 	public void serializar() {
 		try {

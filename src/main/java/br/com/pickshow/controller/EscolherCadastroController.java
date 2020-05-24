@@ -14,8 +14,6 @@ import javafx.stage.Stage;
  * escolher, se é profissional ou cliente.
  * 
  * @author Cicero Romão
- * @see A classe CadastroFactory, pois é nela que faz a chamada da classe do
- *      cadastro que o usuário escolheu.
  */
 public class EscolherCadastroController {
 

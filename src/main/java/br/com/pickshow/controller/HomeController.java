@@ -41,6 +41,10 @@ public class HomeController implements Initializable {
 	@FXML
 	public MenuItem menuItemMeusLocais;
 	@FXML
+	public MenuItem menuItemMeusServicos;
+	@FXML
+	public MenuItem menuItemMeusProdutos;
+	@FXML
 	public MenuItem menuItemSair;
 	@FXML
 	public Button sair;
@@ -178,6 +182,8 @@ public class HomeController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		carregarImagensHome();
+		removerItensCliente();
+		
 
 	}
 
@@ -201,5 +207,14 @@ public class HomeController implements Initializable {
 		colab2.setImage(new Image(new File("img/cara.png").toURI().toString()));
 		colab3.setImage(new Image(new File("img/cara2.png").toURI().toString()));
 
+	}
+	
+	public void removerItensCliente() {
+		if(LoginController.tipoUsuario == 1) {
+			System.out.println(menuNomeUser.getItems());
+			menuNomeUser.getItems().removeAll(menuItemMeusProdutos, menuItemMeusLocais, menuItemMeusServicos);
+			System.out.println(menuNomeUser.getItems());
+		}
+		
 	}
 }

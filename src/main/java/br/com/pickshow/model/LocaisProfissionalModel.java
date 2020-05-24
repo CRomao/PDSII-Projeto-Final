@@ -25,13 +25,12 @@ public class LocaisProfissionalModel {
 	 * visualização dos locais do profissional, onde pega a conexão com o banco,
 	 * prepara o SQL de seleção(SELECT) e em seguida executa o comando, fazendo em
 	 * seguida um while para pegar os dados dos locais e armazenar na variável
-	 * locais, pois vai ser selecionado todos os locais daquele profissional, armazenado
-	 * em um ArrayList, e em seguida retorna os locais.
+	 * locais, pois vai ser selecionado todos os locais daquele profissional,
+	 * armazenado em um ArrayList, e em seguida retorna os locais.
 	 * 
 	 * @author Cicero Romão
 	 * @param id_profissional int - ID do profissional.
-	 * @return ArrayList<LocaisProfissionalController.Local> - Retorna o ArrayList
-	 *         dos locais do profissional.
+	 * @return ArrayList - Retorna o ArrayList dos locais do profissional.
 	 */
 	public static ArrayList<LocaisProfissionalController.Local> selecionarLocais(int id_profissional) {
 		locais.clear();

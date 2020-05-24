@@ -241,7 +241,7 @@ public class LocaisProfissionalController implements Initializable {
 	 * 
 	 * @author Cicero Romão
 	 * 
-	 * @return ObservableList<Local> - Retorna a lista dos locais daquele
+	 * @return ObservableList - Retorna a lista dos locais daquele
 	 *         profissional.
 	 */
 	private ObservableList<Local> listaDeLocais() {

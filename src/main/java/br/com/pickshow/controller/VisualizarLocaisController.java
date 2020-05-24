@@ -107,7 +107,7 @@ public class VisualizarLocaisController implements Initializable {
 	 * 
 	 * @author Cicero Romão
 	 * 
-	 * @return ObservableList<Local> - Lista dos locais cadastrados no sistema.
+	 * @return ObservableList - Lista dos locais cadastrados no sistema.
 	 */
 	private ObservableList<Local> listaDeLocais() {
 

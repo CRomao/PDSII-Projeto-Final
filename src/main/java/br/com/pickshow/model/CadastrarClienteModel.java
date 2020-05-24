@@ -8,8 +8,7 @@ import br.com.pickshow.padroes.ConnectionSingleton;
  * Classe model para cadastrar cliente, onde será feita a operação de inserção
  * de um novo cliente no banco de dados.
  * 
- * @see A classe CadastrarClienteController.java, é nela que o método será
- *      chamado.
+ * 
  * @author Cicero Romão
  * 
  */
