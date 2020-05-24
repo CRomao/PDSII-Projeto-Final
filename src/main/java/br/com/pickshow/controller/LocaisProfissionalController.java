@@ -2,15 +2,11 @@ package br.com.pickshow.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import br.com.pickshow.controller.VisualizarLocaisController.Local;
-import br.com.pickshow.model.LoginModel;
 import br.com.pickshow.model.LocaisProfissionalModel;
+import br.com.pickshow.model.LoginModel;
 import br.com.pickshow.view.CadastrarLocaisView;
-import br.com.pickshow.view.LocalSelecionadoClienteView;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -18,12 +14,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 

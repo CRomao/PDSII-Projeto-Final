@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.com.pickshow.controller.LocaisProfissionalController.Local;
 import br.com.pickshow.model.VisualizarLocaisModel;
 import br.com.pickshow.view.LocalSelecionadoClienteView;
-import br.com.pickshow.view.LocaisProfissionalView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

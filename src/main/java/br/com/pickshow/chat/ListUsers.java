@@ -10,11 +10,11 @@ import java.util.List;
  * 
  */
 
-public class ListUsers {
+public class ListUsers<T extends User> {
 
-	public List<User> listUsers = new ArrayList<>();
+	public List<T> listUsers = new ArrayList<>();
 
-	public void addNewUser(User newUser) {
+	public void addNewUser(T newUser) {
 		listUsers.add(newUser);
 	}
 }

@@ -211,9 +211,7 @@ public class HomeController implements Initializable {
 	
 	public void removerItensCliente() {
 		if(LoginController.tipoUsuario == 1) {
-			System.out.println(menuNomeUser.getItems());
 			menuNomeUser.getItems().removeAll(menuItemMeusProdutos, menuItemMeusLocais, menuItemMeusServicos);
-			System.out.println(menuNomeUser.getItems());
 		}
 		
 	}

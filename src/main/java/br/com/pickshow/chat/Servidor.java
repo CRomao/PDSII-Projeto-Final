@@ -17,7 +17,7 @@ import java.net.Socket;
 public class Servidor extends Thread {
 
 	private Socket cliente;
-	private static ListUsers users = new ListUsers();
+	private static ListUsers<User> users = new ListUsers();
 
 	public Servidor(Socket novoCliente) {
 		this.cliente = novoCliente;

@@ -11,12 +11,12 @@ import java.io.ObjectOutputStream;
  * 
  */
 
-public class SerializarUsuario {
+public class SerializarUsuario<T extends Usuario> {
 
-	Usuario usu;
+	T usu;
 
 	// Construtor que recebe o usuário.
-	public SerializarUsuario(Usuario usu) {
+	public SerializarUsuario(T usu) {
 		this.usu = usu;
 	}
 

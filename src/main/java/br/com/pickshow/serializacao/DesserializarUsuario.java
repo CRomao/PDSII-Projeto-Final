@@ -12,9 +12,9 @@ import java.io.ObjectInputStream;
  * 
  */
 
-public class DesserializarUsuario {
+public class DesserializarUsuario<T extends Usuario> {
 
-	Usuario usu = null;
+	T usu = null;
 	FileInputStream arquivo = null;
 
 	/**
@@ -40,7 +40,7 @@ public class DesserializarUsuario {
 	public void desserializar() {
 		try {
 			ObjectInputStream entrada = new ObjectInputStream(arquivo);
-			this.usu = (Usuario) entrada.readObject();
+			this.usu = (T) entrada.readObject();
 			entrada.close();
 			arquivo.close();
 
@@ -56,7 +56,7 @@ public class DesserializarUsuario {
 	 * 
 	 * @return Usuario - Usuário desserializado.
 	 */
-	public Usuario getLista() {
+	public T getLista() {
 		return usu;
 	}
 
