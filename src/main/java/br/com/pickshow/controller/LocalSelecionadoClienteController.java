@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import br.com.pickshow.controller.VisualizarLocaisController.Local;
 import br.com.pickshow.view.LocalSelecionadoClienteChatView;
 import javafx.fxml.FXML;

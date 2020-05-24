@@ -130,7 +130,7 @@ public class LocalSelecionadoClienteChatController implements Initializable {
 		// Verifica se o TextField está vazio, se tiver avisa ao cliente para digitar
 		// algo.
 		if (txtMsg.getText().trim().equals("")) {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setHeaderText(null);
 			alert.setTitle("Informação");
 			alert.setContentText("Digite algo antes de enviar!");
