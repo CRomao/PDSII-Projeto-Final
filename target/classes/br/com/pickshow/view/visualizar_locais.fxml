@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pickshow.controller.VisualizarLocaisController">
+   <children>
+      <TableView fx:id="tabela" layoutX="-2.0" layoutY="108.0" onMouseClicked="#onMouseClickedTabela" prefHeight="312.0" prefWidth="630.0">
+        <columns>
+          <TableColumn fx:id="nomeProprietario" onEditCommit="#onMouseClickedTabela" prefWidth="84.0" text="Proprietário" />
+          <TableColumn fx:id="nomeLocalCol" prefWidth="163.0" text="Nome do Local" />
+            <TableColumn fx:id="ruaLocalCol" prefWidth="136.0" text="Rua do Local" />
+            <TableColumn fx:id="telefoneLocalCol" prefWidth="111.0" text="Telefone Contato" />
+            <TableColumn fx:id="tipoLocalCol" prefWidth="135.0" text="Tipo de Local" />
+        </columns>
+      </TableView>
+      <TextField layoutX="23.0" layoutY="25.0" prefHeight="33.0" prefWidth="299.0" />
+      <ComboBox fx:id="comboBoxPesquisa" layoutX="336.0" layoutY="25.0" onMouseClicked="#actioncomboBoxPesquisa" prefHeight="33.0" prefWidth="150.0" promptText="Pesquisar por..." />
+      <Button fx:id="btnVoltar" layoutX="546.0" layoutY="19.0" mnemonicParsing="false" onAction="#actionBtnVoltar" prefHeight="45.0" prefWidth="72.0" text="Voltar" />
+      <Line endX="523.0" layoutX="107.0" layoutY="81.0" startX="-107.0" />
+   </children>
+</AnchorPane>

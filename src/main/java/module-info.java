@@ -2,7 +2,7 @@ module br.edu.fapce.view {
     requires javafx.controls;
     requires javafx.fxml;
 	requires java.sql;
-	requires postgresql;
+	//requires postgresql;
 	requires java.management;
 	requires javafx.graphics;
 

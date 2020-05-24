@@ -1,0 +1,8 @@
+module:br.edu.fapce.view
+br.com.pickshow.chat
+br.com.pickshow.controller
+br.com.pickshow.interfaces
+br.com.pickshow.model
+br.com.pickshow.padroes
+br.com.pickshow.serializacao
+br.com.pickshow.view
