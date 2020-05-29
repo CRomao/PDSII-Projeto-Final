@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  * fazer. Implementa a interface Initializable, para que altere alguns
  * componentes ao iniciar a tela.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class HomeController implements Initializable {

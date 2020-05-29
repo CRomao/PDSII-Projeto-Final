@@ -26,7 +26,7 @@ import javafx.stage.Stage;
  * esta tela pode ser de cadastro ou alteração. A classe implementa as
  * interfaces VerificarCampos e Initializable.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class CadastrarLocaisController implements VerificarCampos, Initializable {

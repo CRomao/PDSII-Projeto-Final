@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  * Classe para apenas abrir a tela de chat do profissional, seria implementado
  * uma solução dinâmica para o chat, mas era um pouco complexo.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class ConversasProfissionalController {

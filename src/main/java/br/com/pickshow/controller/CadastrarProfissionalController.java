@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  * verificação dos campos da tela, fechamento do Stage, a ação sobre o botão
  * cadastrar e a população do comboBox da área de atuação do profissional .
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class CadastrarProfissionalController implements VerificarCampos {

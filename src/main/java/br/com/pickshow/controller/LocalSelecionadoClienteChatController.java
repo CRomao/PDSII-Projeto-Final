@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  * com o profissional, implementando a interface Initializable, para alterar os
  * campos assim que a tela for iniciada.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class LocalSelecionadoClienteChatController implements Initializable {

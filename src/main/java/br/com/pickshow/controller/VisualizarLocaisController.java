@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  * cadastrados no sistema, implementando a interface Initializable para poder
  * alterar alguns campos ao iniciar a tela.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class VisualizarLocaisController implements Initializable {

@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  * profissional que está logado, implementando a interface Initializable para
  * poder alterar alguns campos ao iniciar a tela.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class LocaisProfissionalController implements Initializable {

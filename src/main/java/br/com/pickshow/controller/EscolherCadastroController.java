@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  * Classe para poder escolher qual o cadastro de usuário que a pessoa pode
  * escolher, se é profissional ou cliente.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  */
 public class EscolherCadastroController {
 

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  * Classe controller para cadastrar cliente, onde terá os métodos de verificação
  * dos campos da tela, fechamento do Stage e a ação sobre o botão cadastrar.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class CadastrarClienteController implements VerificarCampos {

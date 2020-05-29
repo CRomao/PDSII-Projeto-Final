@@ -31,7 +31,7 @@ import javafx.stage.Stage;
  * Classe controller para o login, onde é a primeira tela a ser chamada na
  * aplicação.
  * 
- * @author Cicero Romão
+ * @author Cicero Romão e Eduardo Marculino
  * 
  */
 public class LoginController implements VerificarCampos, Initializable {
