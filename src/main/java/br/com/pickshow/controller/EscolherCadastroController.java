@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import br.com.pickshow.padroes.CadastroFactory;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -19,10 +17,13 @@ public class EscolherCadastroController {
 
 	CadastroFactory cadastroFactory = new CadastroFactory();
 
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCadastrarProfiss;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCadastrarCliente;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnVoltar;
 

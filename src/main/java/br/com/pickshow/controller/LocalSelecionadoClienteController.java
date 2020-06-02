@@ -25,20 +25,28 @@ import javafx.stage.Stage;
  */
 public class LocalSelecionadoClienteController implements Initializable {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblNomeLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblRuaLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblTelefoneContato;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextArea txtAreaInformacoes;
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblAbrirChat;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCancelar;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView imgLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView imgRecomend;
 

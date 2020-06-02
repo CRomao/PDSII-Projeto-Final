@@ -16,6 +16,7 @@ import javafx.stage.Stage;
  */
 public class ConversasProfissionalController {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnVisualizar;
 

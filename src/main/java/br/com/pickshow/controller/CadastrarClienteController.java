@@ -18,18 +18,25 @@ import javafx.stage.Stage;
  */
 public class CadastrarClienteController implements VerificarCampos {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtNome;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtSobreNome;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtEmail;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtSenha;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtCpf;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCadastrarCliente;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCancelar;
 

@@ -20,7 +20,7 @@ public class LocalSelecionadoClienteView extends Application {
 	private static Scene scene;
 
 	@Override
-	public void start(Stage stage) throws IOException {
+	public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
 		scene = new Scene(loadFXML("local_selecionado_cliente"));
 		stage.setScene(scene);
 		stage.setResizable(false);

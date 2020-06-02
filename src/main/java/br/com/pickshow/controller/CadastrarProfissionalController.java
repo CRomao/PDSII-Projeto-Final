@@ -20,22 +20,29 @@ import javafx.stage.Stage;
  */
 public class CadastrarProfissionalController implements VerificarCampos {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtNome;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtSobreNome;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtEmail;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtSenha;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtCpfCnpj;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCadastrarProfissional;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCancelar;
 	@FXML
-	public ComboBox comboBoxEscolhaArea;
+	public ComboBox<String> comboBoxEscolhaArea;
 
 	/**
 	 * Método para poder verificar quando o usuário clicou em cancelar, para poder

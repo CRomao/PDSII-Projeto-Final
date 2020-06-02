@@ -1,7 +1,6 @@
 package br.com.pickshow.controller;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -36,16 +35,21 @@ import javafx.stage.Stage;
  */
 public class LoginController implements VerificarCampos, Initializable {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtEmail;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtSenha;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnEntrar;
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblCadastrar;
 	@FXML
-	public ComboBox comboBoxEscolha;
+	public ComboBox<String> comboBoxEscolha;
+	@SuppressWarnings("exports")
 	@FXML
 	public CheckBox checkConectado;
 	public static int tipoUsuario;
@@ -196,7 +200,7 @@ public class LoginController implements VerificarCampos, Initializable {
 
 		if (checkConectado.isSelected()) {
 			Usuario usu = new Usuario(txtEmail.getText(), txtSenha.getText(), checkConectado.isSelected());
-			SerializarUsuario ser = new SerializarUsuario(usu);
+			SerializarUsuario<Usuario> ser = new SerializarUsuario<>(usu);
 			ser.serializar();
 			gravarArq.println(1);
 		} else {
@@ -220,7 +224,7 @@ public class LoginController implements VerificarCampos, Initializable {
 		flag = Integer.parseInt(buffRead.readLine());
 
 		if (flag == 1) {
-			DesserializarUsuario desser = new DesserializarUsuario("arquivo.ser");
+			DesserializarUsuario<Usuario> desser = new DesserializarUsuario<>("arquivo.ser");
 			desser.desserializar();
 			Usuario usu = desser.getLista();
 
@@ -230,6 +234,7 @@ public class LoginController implements VerificarCampos, Initializable {
 				checkConectado.setSelected(usu.isConectado());
 			}
 		}
+		buffRead.close();
 	}
 
 }

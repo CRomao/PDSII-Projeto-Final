@@ -39,10 +39,16 @@ public class CadastrarLocaisModel {
 			PreparedStatement ps;
 
 			String sql = "INSERT INTO AD_local (id_profissional, nomeLocal, ruaLocal, telefone, informacoesLocal, id_tipoLocal) "
-					+ "values(" + idProfissional + ", '" + nomeLocal + "', '" + ruaLocal + "', '" + telefoneContato
-					+ "', '" + areaInformacoes + "'," + " " + tipoAreaLocal + ");";
+					+ "values(?,?,?,?,?,?);";
 
 			ps = conn.prepareStatement(sql);
+			ps.setInt(1, idProfissional);
+			ps.setString(2, nomeLocal);
+			ps.setString(3, ruaLocal);
+			ps.setString(4, telefoneContato);
+			ps.setString(5, areaInformacoes);
+			ps.setInt(6, tipoAreaLocal);
+			
 			ps.execute();
 			ps.close();
 			return "Cadastro realizado com sucesso!";

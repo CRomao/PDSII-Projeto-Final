@@ -1,6 +1,5 @@
 package br.com.pickshow.controller;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -15,12 +14,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -34,25 +33,33 @@ import javafx.stage.Stage;
 public class LocalSelecionadoClienteChatController implements Initializable {
 
 	private Socket cliente;
-	private BufferedReader veioDoServidor;
 	private DataOutputStream vaiPraServidor;
 
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblNomeLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblRuaLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public Label lblTelefoneContato;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextArea txtAreaInformacoes;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnEnviarMsg;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtMsg;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCancelar;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView imgLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView imgRecomend;
 
@@ -81,7 +88,7 @@ public class LocalSelecionadoClienteChatController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Local local = new VisualizarLocaisController().localSelecionado;
+		Local local =  VisualizarLocaisController.localSelecionado;
 		lblNomeLocal.setText(local.getNomeLocal());
 		lblTelefoneContato.setText(local.getTelefoneLocal());
 		lblRuaLocal.setText(local.getRuaLocal());

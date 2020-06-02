@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import br.com.pickshow.controller.VisualizarLocaisController;
 import br.com.pickshow.padroes.ConnectionSingleton;
-import br.com.pickshow.view.VisualizarLocaisView;
 
 /**
  * Classe model para pegar TODOS os locais cadastrados no sistema, onde será

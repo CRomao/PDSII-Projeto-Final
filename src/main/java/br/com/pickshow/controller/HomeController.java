@@ -30,54 +30,79 @@ import javafx.stage.Stage;
  */
 public class HomeController implements Initializable {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public Menu menuNomeUser;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuItemMeusDados;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuItemChat;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuItemMeusLocais;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuItemMeusServicos;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuItemMeusProdutos;
+	@SuppressWarnings("exports")
 	@FXML
 	public MenuItem menuItemSair;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button sair;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView img1;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView img2;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star1;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star2;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star3;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star4;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star5;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star6;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star7;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star8;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star9;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView star10;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView eventos;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView colab1;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView colab2;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView colab3;
 	boolean fechar;

@@ -39,15 +39,19 @@ public class LocaisProfissionalController implements Initializable {
 	public static int doubleClicked = 0;
 	boolean deletar;
 
+	@SuppressWarnings("exports")
 	public Button btnCadastrar;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnDeletar;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnAtualizar;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnVoltar;
 	@FXML
-	public ComboBox comboBoxPesquisa;
+	public ComboBox<String> comboBoxPesquisa;
 	@FXML
 	public TableView<Local> tabela;
 	@FXML
@@ -283,6 +287,7 @@ public class LocaisProfissionalController implements Initializable {
 			return cod.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleIntegerProperty codProperty() {
 			return cod;
 		}
@@ -295,6 +300,7 @@ public class LocaisProfissionalController implements Initializable {
 			return nomeLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty nomeLocalProperty() {
 			return nomeLocal;
 		}
@@ -307,6 +313,7 @@ public class LocaisProfissionalController implements Initializable {
 			return ruaLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty ruaLocalProperty() {
 			return ruaLocal;
 		}
@@ -319,6 +326,7 @@ public class LocaisProfissionalController implements Initializable {
 			return telefoneLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty telefoneLocalProperty() {
 			return telefoneLocal;
 		}
@@ -331,6 +339,7 @@ public class LocaisProfissionalController implements Initializable {
 			return tipoLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty tipoLocalProperty() {
 			return tipoLocal;
 		}

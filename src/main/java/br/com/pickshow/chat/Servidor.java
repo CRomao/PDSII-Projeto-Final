@@ -17,7 +17,7 @@ import java.net.Socket;
 public class Servidor extends Thread {
 
 	private Socket cliente;
-	private static ListUsers<User> users = new ListUsers();
+	private static ListUsers<User> users = new ListUsers<>();
 
 	public Servidor(Socket novoCliente) {
 		this.cliente = novoCliente;
@@ -33,8 +33,6 @@ public class Servidor extends Thread {
 		try {
 
 			String msgCliente;
-			String enviarMsg;
-
 			veioDoCliente = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
 			vaiPraCliente = new DataOutputStream(cliente.getOutputStream());
 
@@ -104,6 +102,7 @@ public class Servidor extends Thread {
 	public static void main(String[] args) throws IOException {
 
 		// Cria-se o servidor na porta informada.
+		@SuppressWarnings("resource")
 		ServerSocket servidor = new ServerSocket(8001);
 
 		// Controle para poder aceitar vários clientes.

@@ -31,20 +31,27 @@ import javafx.stage.Stage;
  */
 public class CadastrarLocaisController implements VerificarCampos, Initializable {
 
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtNomeLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtRuaLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextField txtTelefoneContato;
+	@SuppressWarnings("exports")
 	@FXML
 	public TextArea txtAreaInformacoes;
 	@FXML
-	public ComboBox comboBoxEscolhaArea;
+	public ComboBox<String> comboBoxEscolhaArea;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCadastrarLocal;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnCancelar;
+	@SuppressWarnings("exports")
 	@FXML
 	public ImageView imgLocal;
 

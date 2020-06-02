@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import br.com.pickshow.controller.LocaisProfissionalController;
 import br.com.pickshow.padroes.ConnectionSingleton;
-import br.com.pickshow.view.VisualizarLocaisView;
 
 /**
  * Classe model para pegar os locais cadastrados do profissional, onde será

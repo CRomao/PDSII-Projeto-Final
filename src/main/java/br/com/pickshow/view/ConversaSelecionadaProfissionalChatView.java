@@ -21,7 +21,7 @@ public class ConversaSelecionadaProfissionalChatView extends Application {
 	private static Scene scene;
 
 	@Override
-	public void start(Stage stage) throws IOException {
+	public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
 		scene = new Scene(loadFXML("conversa_selecionada_profissional_chat"));
 		stage.setScene(scene);
 		stage.setResizable(false);

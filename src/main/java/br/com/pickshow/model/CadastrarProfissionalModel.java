@@ -35,10 +35,16 @@ public class CadastrarProfissionalModel {
 			PreparedStatement ps;
 
 			String sql = "INSERT INTO AD_profissional (nome, sobrenome, senha, email, areaAtuacao, cpfCnpj) "
-					+ "values('" + nome + "', '" + sobrenome + "', '" + senha + "', '" + email + "', " + areaAtuacao
-					+ ", '" + cpfCnpj + "');";
+					+ "values(?,?,?,?,?,?)";
 
 			ps = conn.prepareStatement(sql);
+			ps.setString(1, nome);
+			ps.setString(2, sobrenome);
+			ps.setString(3, senha);
+			ps.setString(4, email);
+			ps.setInt(5, areaAtuacao);
+			ps.setString(6, cpfCnpj);
+			
 			ps.execute();
 			ps.close();
 			return "Cadastro realizado com sucesso!";

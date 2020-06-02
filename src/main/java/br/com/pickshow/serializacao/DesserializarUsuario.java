@@ -37,6 +37,7 @@ public class DesserializarUsuario<T extends Usuario> {
 	 * 
 	 * @author Cicero Romão
 	 */
+	@SuppressWarnings("unchecked")
 	public void desserializar() {
 		try {
 			ObjectInputStream entrada = new ObjectInputStream(arquivo);

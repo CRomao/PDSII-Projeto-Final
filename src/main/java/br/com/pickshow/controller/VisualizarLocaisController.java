@@ -32,12 +32,14 @@ public class VisualizarLocaisController implements Initializable {
 	public static int doubleClicked = 0;
 	public Local primeiroClick, segundoClick;
 
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnVisualizar;
+	@SuppressWarnings("exports")
 	@FXML
 	public Button btnVoltar;
 	@FXML
-	public ComboBox comboBoxPesquisa;
+	public ComboBox<String> comboBoxPesquisa;
 	@FXML
 	public TableView<Local> tabela;
 	@FXML
@@ -111,6 +113,16 @@ public class VisualizarLocaisController implements Initializable {
 
 		return FXCollections.observableArrayList(VisualizarLocaisModel.mostrarLocaisCadastrados());
 	}
+	
+	
+
+	public static Local getLocalSelecionado() {
+		return localSelecionado;
+	}
+
+	public static void setLocalSelecionado(Local localSelecionado) {
+		VisualizarLocaisController.localSelecionado = localSelecionado;
+	}
 
 	/**
 	 * Método para verificar se o usuário clicou duas vezes em um registro da
@@ -178,6 +190,7 @@ public class VisualizarLocaisController implements Initializable {
 			return nomeProprietario.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty codProperty() {
 			return nomeProprietario;
 		}
@@ -190,6 +203,7 @@ public class VisualizarLocaisController implements Initializable {
 			return nomeLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty nomeLocalProperty() {
 			return nomeLocal;
 		}
@@ -202,6 +216,7 @@ public class VisualizarLocaisController implements Initializable {
 			return ruaLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty ruaLocalProperty() {
 			return ruaLocal;
 		}
@@ -214,6 +229,7 @@ public class VisualizarLocaisController implements Initializable {
 			return telefoneLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty telefoneLocalProperty() {
 			return telefoneLocal;
 		}
@@ -226,6 +242,7 @@ public class VisualizarLocaisController implements Initializable {
 			return tipoLocal.get();
 		}
 
+		@SuppressWarnings("exports")
 		public SimpleStringProperty tipoLocalProperty() {
 			return tipoLocal;
 		}

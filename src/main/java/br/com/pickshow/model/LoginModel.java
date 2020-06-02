@@ -39,12 +39,14 @@ public class LoginModel {
 			boolean login = false;
 			String resultado = "";
 			if (tipoUsuario == 0) {// profissional
-				sql = "SELECT * FROM AD_profissional where email = '" + email + "' AND senha = '" + senha + "';";
+				sql = "SELECT * FROM AD_profissional where email = ? AND senha = ?;";
 			} else if (tipoUsuario == 1) {// cliente
-				sql = "SELECT * FROM AD_cliente where email = '" + email + "' AND senha = '" + senha + "';";
+				sql = "SELECT * FROM AD_cliente where email = ? AND senha = ?;";
 			}
 
 			ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setString(2, senha);
 			ResultSet rs = ps.executeQuery();
 			
 

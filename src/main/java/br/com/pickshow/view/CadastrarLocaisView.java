@@ -20,7 +20,7 @@ public class CadastrarLocaisView extends Application {
 	private static Scene scene;
 
 	@Override
-	public void start(Stage stage) throws IOException {
+	public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
 		scene = new Scene(loadFXML("cadastro_local"));
 		stage.setScene(scene);
 		stage.setResizable(false);

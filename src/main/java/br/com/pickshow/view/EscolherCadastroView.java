@@ -20,7 +20,7 @@ public class EscolherCadastroView extends Application {
 	private static Scene scene;
 
 	@Override
-	public void start(Stage stage) throws IOException {
+	public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
 		scene = new Scene(loadFXML("escolher_cadastro"));
 		stage.setScene(scene);
 		stage.setTitle("Escolher tipo de Cadastro");

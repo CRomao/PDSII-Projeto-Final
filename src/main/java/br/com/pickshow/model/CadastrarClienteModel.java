@@ -33,10 +33,15 @@ public class CadastrarClienteModel {
 			Connection conn = ConnectionSingleton.getConexao();
 			PreparedStatement ps;
 
-			String sql = "INSERT INTO AD_cliente (nome, sobrenome, senha, email, cpf) " + "values('" + nome + "', '"
-					+ sobrenome + "', '" + senha + "', '" + email + "', '" + cpf + "');";
+			String sql = "INSERT INTO AD_cliente (nome, sobrenome, senha, email, cpf) " + "values(?,?,?,?,?);";
 
 			ps = conn.prepareStatement(sql);
+			ps.setString(1, nome);
+			ps.setString(2, sobrenome);
+			ps.setString(3, senha);
+			ps.setString(4, email);
+			ps.setString(5, cpf);
+			
 			ps.execute();
 			ps.close();
 			return "Cadastro realizado com sucesso!";
