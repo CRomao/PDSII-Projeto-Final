@@ -119,25 +119,6 @@ alter table ad_profissional alter id drop default;
 alter table ad_cliente alter id drop default;
 alter table ad_TIPOLOCAL alter id drop default;
 
-
---FUNCTIONS
-
-CREATE OR REPLACE FUNCTION AD_sp_selecionar_locais(id_profissional integer)
-RETURNS RECORD AS
-$$
-DECLARE 
-id_do_profissional INTEGER;
-locais_profissional RECORD;
-BEGIN
-id_do_profissional = id_profissional;
-SELECT l.id, l.nomeLocal, l.ruaLocal, l.telefone, tl.tipo INTO locais_profissional FROM AD_local l 
-JOIN ad_tipoLocal tl ON l.id_tipoLocal = tl.id 
-where l.id_profissional = id_do_profissional ORDER BY l.nomeLocal;
-RETURN locais_profissional;
-END;
-$$
-LANGUAGE plpgsql;
-
 -------------------------------------------------------------------------------------------
 select * from ad_cliente
 select * from ad_profissional
