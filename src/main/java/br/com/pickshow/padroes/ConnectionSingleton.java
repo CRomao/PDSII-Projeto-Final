@@ -14,9 +14,9 @@ import java.sql.SQLException;
 public class ConnectionSingleton {
 
 	private static Connection con = null;
-	private static String url = "jdbc:postgresql://labsql.fapce.edu.br:3024/fap_2020_1";
-	private static String user = "obd_2018210009";
-	private static String pass = "cicero23;";
+	private static String url = "jdbc:postgresql://ec2-184-72-236-57.compute-1.amazonaws.com:5432/d9mp55j7o59vg7";
+	private static String user = "kibugfzzocvuku";
+	private static String pass = "5cef6fc42b34cd1a34d23b87c510cf43b21d50b31868b1e7ba883638cbfc94b7";
 
 	/**
 	 * Método construtor vázio, para que não permita a instância dessa classe.
