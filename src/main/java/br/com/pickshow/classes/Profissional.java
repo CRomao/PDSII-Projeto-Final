@@ -75,8 +75,9 @@ public class Profissional {
 		}
 	}
 	
-	public int cadastroProfissional(String nome, String sobrenome, String email, String senha, String cpf, int areaAtuacao) {
-		String resultado = CadastrarProfissionalModel.insert(nome, sobrenome, email, senha, cpf, areaAtuacao)
+	public String cadastroProfissional(String nome, String sobrenome, String email, String senha, String cpf, int areaAtuacao) {
+		String resultado = CadastrarProfissionalModel.insert(nome, sobrenome, email, senha, cpf, areaAtuacao);
+		return resultado;
 	}
 	
 	public String login(String email, String senha, int tipoUsuario) {

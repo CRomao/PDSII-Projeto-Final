@@ -33,7 +33,7 @@ public class CadastrarProfissionalTest{
 	@Test
 	@DisplayName("Teste para verificar se o cadastro é realizado com sucesso.")
 	void testarCadastroProfissional() {
-		assertEquals(0, profissional.camposInvalidos("aaa", "bbb", "ccc", "ddd", "1",-1));
+		assertEquals("Cadastro realizado com sucesso!", profissional.cadastroProfissional("jose", "igor", "joseigor@gmail.com", "1234", "00000000000",1));
 	}
 	
 	//LOGIN
