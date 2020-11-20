@@ -1,5 +1,7 @@
 package br.com.pickshow.classes;
 
+import br.com.pickshow.model.CadastrarClienteModel;
+
 public class Cliente {
 	
 	private String nome;
@@ -63,6 +65,11 @@ public class Cliente {
 		}else {
 			return 0;
 		}
+	}
+	
+	public String cadastroCliente(String nome, String sobrenome, String email, String senha, String cpf) {
+		String resultado = CadastrarClienteModel.insert(nome, sobrenome, email, senha, cpf);
+		return resultado;
 	}
 	
 	public String getNome() {

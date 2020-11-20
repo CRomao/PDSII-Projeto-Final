@@ -28,6 +28,12 @@ public class CadastrarClienteTest{
 	void testarCamposComValoresInvalidos() {
 		assertEquals(0, cliente.camposInvalidos("aaa", "bbb", "ccc", "ddd", "1"));
 	}
+	
+	@Test
+	@DisplayName("Teste para verificar se o cadastro é realizado com sucesso.")
+	void testarCadastroCliente() {
+		assertEquals("Cadastro realizado com sucesso!", cliente.cadastroCliente("jose", "igor", "joseigor@gmail.com", "1234", "00000000000"));
+	}
 
 
 }
